@@ -1,0 +1,28 @@
+Analyze the following tagged reviews and cluster them into common overarching themes based on their pain points, behaviors, and emotions.
+
+For each identified theme, perform a product opportunity analysis to identify the root cause, potential opportunities, expected user impact, and confidence score.
+
+Return ONLY JSON in this exact schema, representing a list of themes with opportunity analyses:
+
+[
+  {
+    "theme": "Theme Name (e.g. Discovery Fatigue)",
+    "frequency": 63,
+    "supporting_quotes": [
+      "Exact quote from a review",
+      "Another exact quote from a review"
+    ],
+    "summary": "A brief 1-2 sentence summary of this theme.",
+    "root_cause": "The likely root cause explaining why users experience this problem.",
+    "opportunities": [
+      "Product Opportunity 1 (e.g. Introduce a Discovery Radius control)",
+      "Product Opportunity 2",
+      "Product Opportunity 3"
+    ],
+    "expected_impact": "Estimated user impact if opportunity is implemented.",
+    "confidence_score": "Confidence score percentage (e.g. 91%) based on the strength of supporting evidence."
+  }
+]
+
+No markdown formatting.
+No explanations outside the JSON.

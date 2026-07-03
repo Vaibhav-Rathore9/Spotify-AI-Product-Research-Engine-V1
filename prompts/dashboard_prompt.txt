@@ -1,0 +1,48 @@
+Analyze the following tagged reviews to populate a product research dashboard with exactly six sections.
+
+Return ONLY JSON matching this structure:
+
+{
+  "discovery_barriers": [
+    {
+      "barrier": "Description of the discovery barrier",
+      "count": 5,
+      "examples": ["Quote or summary of example"]
+    }
+  ],
+  "recommendation_frustrations": [
+    {
+      "frustration": "Description of the recommendation issue",
+      "count": 3,
+      "details": "Context about the frustration"
+    }
+  ],
+  "listening_behaviors": [
+    {
+      "behavior": "Description of listening behavior identified",
+      "context": "Context or pattern from reviews"
+    }
+  ],
+  "user_segments": [
+    {
+      "segment": "Name of user segment (e.g. Lyrics Enthusiast)",
+      "description": "Key characteristics of this segment"
+    }
+  ],
+  "representative_quotes": [
+    {
+      "quote": "Direct quote from a review",
+      "source": "Reddit or Google Play Store or Spotify Community",
+      "theme": "Theme or tag related to this quote"
+    }
+  ],
+  "unmet_needs": [
+    {
+      "need": "Description of the unmet user need",
+      "explanation": "Why this need is currently not met by Spotify"
+    }
+  ]
+}
+
+No markdown formatting.
+No explanation outside the JSON payload.

@@ -1,0 +1,19 @@
+Analyze this review.
+
+Return ONLY JSON.
+
+Output schema:
+
+{
+    "pain_point": "",
+    "user_goal": "",
+    "behavior": "",
+    "emotion": "",
+    "discovery_barrier": ""
+}
+
+No markdown.
+
+No explanations.
+
+One review at a time.
