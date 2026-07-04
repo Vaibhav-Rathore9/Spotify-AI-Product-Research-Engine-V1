@@ -1,0 +1,272 @@
+[
+    {
+        "id": "reddit_fallback_001",
+        "source": "Reddit",
+        "title": "The new UI update is a disaster",
+        "text": "I can't believe they changed the UI layout again. Finding my liked songs now takes three clicks instead of one. Why does Spotify keep making changes nobody asked for?",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_001",
+        "date": "2026-06-28T15:20:00Z",
+        "author": "pixel_pusher"
+    },
+    {
+        "id": "reddit_fallback_002",
+        "source": "Reddit",
+        "title": "Smart Shuffle is so annoying, please let us turn it off permanently",
+        "text": "Every time I open a playlist, Smart Shuffle is ON by default. I have to manually disable it every single time. There should be a global toggle to turn it off forever.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_002",
+        "date": "2026-06-27T12:10:00Z",
+        "author": "music_purist42"
+    },
+    {
+        "id": "reddit_fallback_003",
+        "source": "Reddit",
+        "title": "SpotifyWrapped was disappointing this year",
+        "text": "The new Wrapped felt very generic compared to previous years. The animations were cool but the actual insights were surface level. Give us more deep stats like total hours listened, top genres breakdown, etc.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_003",
+        "date": "2026-06-25T09:45:00Z",
+        "author": "data_nerd_spotify"
+    },
+    {
+        "id": "reddit_fallback_004",
+        "source": "Reddit",
+        "title": "Audio quality regression after latest update",
+        "text": "Is it just me or has the audio quality gotten worse? I'm on premium with high quality streaming enabled and albums that used to sound crisp now sound compressed. Might switch to Apple Music if this keeps up.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_004",
+        "date": "2026-06-24T18:30:00Z",
+        "author": "audiophile_dev"
+    },
+    {
+        "id": "reddit_fallback_005",
+        "source": "Reddit",
+        "title": "The recommendation algorithm keeps suggesting the same songs",
+        "text": "My Discover Weekly has been recycling the same 20 songs for months. I've tried liking/disliking, making playlists, but nothing changes. The algorithm feels completely stuck in a loop.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_005",
+        "date": "2026-06-23T14:15:00Z",
+        "author": "discovery_seeker"
+    },
+    {
+        "id": "reddit_fallback_006",
+        "source": "Reddit",
+        "title": "Family plan price increase is ridiculous",
+        "text": "Another price increase on the family plan? This is the third time in two years. At this point, I'm paying almost as much as I would for individual premium plans for each family member. Considering canceling.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_006",
+        "date": "2026-06-22T11:00:00Z",
+        "author": "budget_conscious_mom"
+    },
+    {
+        "id": "reddit_fallback_007",
+        "source": "Reddit",
+        "title": "Podcast integration is ruining my music experience",
+        "text": "Why are podcasts shoved into every part of the app? My home screen is 50% podcast recommendations. I subscribed to Spotify for MUSIC. Give me a separate tab or at least let me hide podcasts completely.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_007",
+        "date": "2026-06-21T16:45:00Z",
+        "author": "music_only_please"
+    },
+    {
+        "id": "reddit_fallback_008",
+        "source": "Reddit",
+        "title": "Lyrics feature is great but needs more songs",
+        "text": "Love the real-time lyrics feature but so many songs don't have lyrics available. Especially older tracks and indie artists. Please expand the lyrics library, it's such a great feature when it works.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_008",
+        "date": "2026-06-20T08:20:00Z",
+        "author": "karaoke_night"
+    },
+    {
+        "id": "reddit_fallback_009",
+        "source": "Reddit",
+        "title": "Queue management is still terrible after all these years",
+        "text": "Why can't I save my queue? Why does adding one song from search clear my entire queue? Why is there no 'play next' and 'add to queue' distinction that actually works? This has been broken for years.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_009",
+        "date": "2026-06-19T20:10:00Z",
+        "author": "queue_frustrated"
+    },
+    {
+        "id": "reddit_fallback_010",
+        "source": "Reddit",
+        "title": "Collaborative playlists are broken on mobile",
+        "text": "My friend and I have a collaborative playlist but neither of us can add songs from the mobile app anymore. It just spins forever. Works fine on desktop though. This has been broken for weeks.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_010",
+        "date": "2026-06-18T13:35:00Z",
+        "author": "playlist_collab_fan"
+    },
+    {
+        "id": "reddit_fallback_011",
+        "source": "Reddit",
+        "title": "Daylist feature is actually amazing",
+        "text": "Can we take a moment to appreciate the Daylist feature? It generates the perfect mood-based playlist throughout the day. My afternoon 'contemplative indie' list was spot on. More features like this please!",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_011",
+        "date": "2026-06-17T15:50:00Z",
+        "author": "daylist_lover"
+    },
+    {
+        "id": "reddit_fallback_012",
+        "source": "Reddit",
+        "title": "Offline mode keeps deleting my downloads",
+        "text": "I download albums for my commute and every few weeks Spotify decides to delete them all. I have to re-download everything. Storage isn't the issue, I have plenty of space. This is so frustrating.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_012",
+        "date": "2026-06-16T07:40:00Z",
+        "author": "commuter_music"
+    },
+    {
+        "id": "reddit_fallback_013",
+        "source": "Reddit",
+        "title": "Crossfade doesn't work properly on Android",
+        "text": "Set crossfade to 5 seconds but songs still cut abruptly. Tried reinstalling, clearing cache, nothing works. Works fine on my iPhone though. Android app needs more QA love.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_013",
+        "date": "2026-06-15T19:25:00Z",
+        "author": "android_user_2026"
+    },
+    {
+        "id": "reddit_fallback_014",
+        "source": "Reddit",
+        "title": "Spotify needs a proper social feature",
+        "text": "Remember when you could see what friends were listening to? That was peak Spotify social. Now there's nothing. Even Apple Music has better social features. Bring back activity feeds!",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_014",
+        "date": "2026-06-14T10:15:00Z",
+        "author": "social_listener"
+    },
+    {
+        "id": "reddit_fallback_015",
+        "source": "Reddit",
+        "title": "The DJ feature is hit or miss",
+        "text": "Some days the DJ nails it with perfect transitions and commentary. Other days it plays the same genre for 30 minutes straight. The concept is brilliant but the execution needs work. AI needs more training data.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_015",
+        "date": "2026-06-13T22:00:00Z",
+        "author": "dj_skeptic"
+    },
+    {
+        "id": "reddit_fallback_016",
+        "source": "Reddit",
+        "title": "Can we get better artist radio please?",
+        "text": "Artist radio is supposed to play similar artists but it just plays the same 5 artists over and over. I want DISCOVERY, not an echo chamber. The old radio was better before whatever algorithm change happened.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_016",
+        "date": "2026-06-12T14:30:00Z",
+        "author": "discover_new_music"
+    },
+    {
+        "id": "reddit_fallback_017",
+        "source": "Reddit",
+        "title": "Spotify Connect is unreliable on smart speakers",
+        "text": "Trying to cast to my Google Home and it disconnects every 10 minutes. Sometimes it connects to the wrong speaker entirely. Spotify Connect used to be so reliable, what happened?",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_017",
+        "date": "2026-06-11T08:55:00Z",
+        "author": "smart_home_user"
+    },
+    {
+        "id": "reddit_fallback_018",
+        "source": "Reddit",
+        "title": "The new friend activity sidebar disappeared",
+        "text": "Where did the friend activity sidebar go on desktop? I used to love seeing what my friends were listening to. Now it's just gone. Please bring it back, it was one of the best features.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_018",
+        "date": "2026-06-10T16:20:00Z",
+        "author": "nostalgic_listener"
+    },
+    {
+        "id": "reddit_fallback_019",
+        "source": "Reddit",
+        "title": "Gapless playback is still broken in 2026",
+        "text": "How is gapless playback STILL broken? Albums with continuous tracks sound terrible with that split-second silence between songs. This has been an issue since 2020. Fix it!",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_019",
+        "date": "2026-06-09T12:45:00Z",
+        "author": "album_listener"
+    },
+    {
+        "id": "reddit_fallback_020",
+        "source": "Reddit",
+        "title": "Lyrics timing is off for most songs",
+        "text": "When lyrics are available, they're often out of sync by 2-3 seconds. On some songs they're way off. I know syncing is hard but it makes the feature unusable when it's this inaccurate.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_020",
+        "date": "2026-06-08T19:10:00Z",
+        "author": "lyrics_fanatic"
+    },
+    {
+        "id": "reddit_fallback_021",
+        "source": "Reddit",
+        "title": "Love the new blend playlists feature",
+        "text": "Just discovered the Blend feature where you mix your taste with friends. My blend with my roommate was surprisingly good - it found common ground between our very different music tastes. More of this!",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_021",
+        "date": "2026-06-07T11:30:00Z",
+        "author": "blend_enthusiast"
+    },
+    {
+        "id": "reddit_fallback_022",
+        "source": "Reddit",
+        "title": "Premium price not worth it anymore",
+        "text": "At $16.99/month for individual premium, I'm starting to question the value. YouTube Music is $13.99 with YouTube Premium included. Apple Music has lossless at the same price. Spotify needs to justify the premium.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_022",
+        "date": "2026-06-06T15:00:00Z",
+        "author": "value_seeker"
+    },
+    {
+        "id": "reddit_fallback_023",
+        "source": "Reddit",
+        "title": "Search is getting worse, not better",
+        "text": "I search for an exact song title and get podcasts, audiobooks, and covers instead of the actual song. The search algorithm prioritizes 'editorial picks' over what I'm actually looking for. Infuriating.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_023",
+        "date": "2026-06-05T08:40:00Z",
+        "author": "search_frustrated"
+    },
+    {
+        "id": "reddit_fallback_024",
+        "source": "Reddit",
+        "title": "Love how well Spotify works with my car's infotainment",
+        "text": "Just got a new car and Spotify integration is seamless. Browse playlists, see album art, voice control - everything works perfectly. One of the few apps that actually nails the car experience.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_024",
+        "date": "2026-06-04T13:15:00Z",
+        "author": "car_commuter"
+    },
+    {
+        "id": "reddit_fallback_025",
+        "source": "Reddit",
+        "title": "Wrapped should include listening time by genre",
+        "text": "The one stat everyone wants from Wrapped is a detailed genre breakdown with hours listened. Not just 'top genre' but a full pie chart. Please Spotify, this is the easiest W ever.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_025",
+        "date": "2026-06-03T10:20:00Z",
+        "author": "stats_obsessed"
+    },
+    {
+        "id": "reddit_fallback_026",
+        "source": "Reddit",
+        "title": "Group Sessions feature is half-baked",
+        "text": "Group Sessions sounds cool but in practice it's buggy. Only one person can control playback, there's always a lag, and it disconnects randomly. Either fix it properly or remove it.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_026",
+        "date": "2026-06-02T17:50:00Z",
+        "author": "group_session_tester"
+    },
+    {
+        "id": "reddit_fallback_027",
+        "source": "Reddit",
+        "title": "The new AI playlist generator is surprisingly good",
+        "text": "Tried the AI playlist feature by describing my mood and it created a playlist that was eerily accurate. 'Upbeat electronic for coding at 2am' gave me exactly what I needed. AI features done right!",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_027",
+        "date": "2026-06-01T23:30:00Z",
+        "author": "ai_playlist_fan"
+    },
+    {
+        "id": "reddit_fallback_028",
+        "source": "Reddit",
+        "title": "Spotify needs better volume normalization",
+        "text": "Switching between songs from different eras means massive volume jumps. Old recordings are whisper quiet, modern pop is maxed out. The volume normalization helps but it's not enough. Need per-album adjustment.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_028",
+        "date": "2026-05-30T09:10:00Z",
+        "author": "volume_sensitive"
+    },
+    {
+        "id": "reddit_fallback_029",
+        "source": "Reddit",
+        "title": "Can we please get crossfade on mobile?",
+        "text": "Crossfade was removed from mobile and it's been months. Some of us rely on smooth transitions for workouts and parties. This is a basic feature that should never have been removed.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_029",
+        "date": "2026-05-28T14:25:00Z",
+        "author": "workout_playlist"
+    },
+    {
+        "id": "reddit_fallback_030",
+        "source": "Reddit",
+        "title": "The podcast exclusion toggle saved my experience",
+        "text": "Just found the setting to reduce podcast recommendations and my home screen is SO much better now. If you haven't found it yet, go to Settings > Content and turn off podcast suggestions. Game changer.",
+        "url": "https://www.reddit.com/r/spotify/comments/fallback_030",
+        "date": "2026-05-26T11:45:00Z",
+        "author": "tips_and_tricks"
+    }
+]

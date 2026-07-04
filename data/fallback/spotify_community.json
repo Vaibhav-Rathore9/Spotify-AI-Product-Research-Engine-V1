@@ -1,0 +1,353 @@
+[
+    {
+        "id": "63e5e52254fd7fb3",
+        "source": "Spotify Community",
+        "title": "Can't play downloaded songs offline",
+        "text": "I've downloaded several albums for a flight but when I go offline, Spotify says 'no internet connection' and won't play anything. The downloads show as available but won't play. This happens on both WiFi and mobile data before going offline.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=0",
+        "date": "2026-04-01T19:17:00Z",
+        "author": "Alex Rivera"
+    },
+    {
+        "id": "eed45f0356a6b57d",
+        "source": "Spotify Community",
+        "title": "Family plan member limit is confusing",
+        "text": "The family plan says up to 6 members but I can only add 5. When I try to add a 6th person it says 'plan is full'. But the plan description clearly says 6 accounts. Is this a bug or am I misunderstanding something?",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=1",
+        "date": "2026-05-08T10:47:00Z",
+        "author": "Jordan Chen"
+    },
+    {
+        "id": "3d2aefd603ad791c",
+        "source": "Spotify Community",
+        "title": "App crashes every time I open a playlist with many songs",
+        "text": "Any playlist over 500 songs causes the app to crash on Android. I have to wait for it to fully load before scrolling or it just freezes and closes. My phone has 8GB RAM so it shouldn't be a device issue.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=2",
+        "date": "2026-04-22T19:57:00Z",
+        "author": "Sam Williams"
+    },
+    {
+        "id": "37a8d77f2e01666c",
+        "source": "Spotify Community",
+        "title": "Can't remove songs from my library without unfollowing the artist",
+        "text": "When I remove a song from my library, it also unfollows the artist. I want to keep following artists but just remove specific songs from my collection. This makes library management impossible.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=3",
+        "date": "2026-04-19T14:02:00Z",
+        "author": "Taylor Martinez"
+    },
+    {
+        "id": "d4222d7a3298db95",
+        "source": "Spotify Community",
+        "title": "Shuffle doesn't actually shuffle",
+        "text": "I have a playlist with 200 songs and shuffle always plays the same 30 songs in roughly the same order. It's like shuffle is weighted towards songs I've listened to more. True random would be much better.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=4",
+        "date": "2026-04-03T11:14:00Z",
+        "author": "Casey Brooks"
+    },
+    {
+        "id": "1f2f312713ed2e41",
+        "source": "Spotify Community",
+        "title": "Spotify HiFi still not available after years of promises",
+        "text": "Spotify announced HiFi tier years ago and it still hasn't launched. Meanwhile Apple Music and Amazon Music both offer lossless audio at no extra cost. At least give premium users better quality for what we're paying.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=5",
+        "date": "2026-04-18T11:45:00Z",
+        "author": "Morgan Lee"
+    },
+    {
+        "id": "6e430b7a6588118f",
+        "source": "Spotify Community",
+        "title": "The queue resets when I switch devices",
+        "text": "I'm building a queue on my phone and when I switch to my desktop app, the entire queue is gone. Spotify Connect should sync the queue across devices, not just the current song.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=6",
+        "date": "2026-07-08T15:37:00Z",
+        "author": "Riley Thompson"
+    },
+    {
+        "id": "2fca2367b4ab043c",
+        "source": "Spotify Community",
+        "title": "Can't add local files to playlists anymore",
+        "text": "After the latest update, I can't add local MP3 files to my Spotify playlists. The option just disappeared. This was the main reason I stayed with Spotify instead of switching to Apple Music.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=7",
+        "date": "2026-06-26T21:00:00Z",
+        "author": "Quinn Davis"
+    },
+    {
+        "id": "f68891f39b831414",
+        "source": "Spotify Community",
+        "title": "Lyrics don't work for non-English songs",
+        "text": "I listen to a lot of K-pop and J-pop but lyrics are only available for English songs. Please expand lyrics support to other languages, especially Korean and Japanese which have huge listener bases.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=8",
+        "date": "2026-05-23T14:21:00Z",
+        "author": "Avery Wilson"
+    },
+    {
+        "id": "e6633d828bb26647",
+        "source": "Spotify Community",
+        "title": "Podcast playback speed resets every time",
+        "text": "I listen to podcasts at 1.5x speed but every time I close and reopen the app, it resets to 1x. I have to manually change it back every single time. This has been reported many times, please fix it.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=9",
+        "date": "2026-06-05T11:48:00Z",
+        "author": "Parker Garcia"
+    },
+    {
+        "id": "12713b16cf5d9b77",
+        "source": "Spotify Community",
+        "title": "The like button should be more prominent",
+        "text": "To like a song I have to tap the tiny heart icon. Why not make the entire album art tappable? Or add a big like button? The current design makes it too easy to accidentally do other things.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=10",
+        "date": "2026-06-04T09:24:00Z",
+        "author": "Drew Anderson"
+    },
+    {
+        "id": "f7b2d967dab94d51",
+        "source": "Spotify Community",
+        "title": "Can't see who's listening to my collaborative playlist",
+        "text": "I made a collaborative playlist but there's no way to see who added which songs. This defeats the purpose of collaboration if I can't track contributions. Please add contributor labels.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=11",
+        "date": "2026-04-12T21:22:00Z",
+        "author": "Jamie Robinson"
+    },
+    {
+        "id": "1bfaaa56e2b7da02",
+        "source": "Spotify Community",
+        "title": "Queue ordering is broken after recent update",
+        "text": "After adding songs to queue, they don't play in the order I added them. Some songs jump ahead while others get pushed back. This started happening after the last app update.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=12",
+        "date": "2026-06-26T08:46:00Z",
+        "author": "Skyler Clark"
+    },
+    {
+        "id": "bb8ec90289c9d2a5",
+        "source": "Spotify Community",
+        "title": "Need a way to bulk remove songs from playlist",
+        "text": "I have playlists with thousands of songs that need cleanup. Having to remove them one by one is painful. Please add a multi-select or 'remove all' option for playlist management.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=13",
+        "date": "2026-07-18T09:59:00Z",
+        "author": "Robin Lewis"
+    },
+    {
+        "id": "840144a0f56e29ea",
+        "source": "Spotify Community",
+        "title": "Spotify Connect doesn't work with all Bluetooth devices",
+        "text": "My Spotify Connect works with my car but not with my Bluetooth speaker at home. Both are connected via Bluetooth but only the car shows up in Connect. This inconsistency is frustrating.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=14",
+        "date": "2026-07-03T16:18:00Z",
+        "author": "Dakota Hall"
+    },
+    {
+        "id": "50a0a2ac5ed7c43f",
+        "source": "Spotify Community",
+        "title": "The daily mix playlists have too much overlap",
+        "text": "My Daily Mix 1 and Daily Mix 2 share about 60% of the same songs. What's the point of multiple mixes if they're basically the same playlist? Each mix should have distinct artists and genres.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=15",
+        "date": "2026-06-19T11:45:00Z",
+        "author": "Finley Young"
+    },
+    {
+        "id": "7cf4d998f26fe4fe",
+        "source": "Spotify Community",
+        "title": "Can't set a song as ringtone from Spotify",
+        "text": "It would be amazing if Spotify had a feature to set songs as ringtones directly. I know this might be platform-specific but at least for Android it would be very useful.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=16",
+        "date": "2026-04-02T18:14:00Z",
+        "author": "Sage Walker"
+    },
+    {
+        "id": "c6181a6b5911f2d9",
+        "source": "Spotify Community",
+        "title": "Podcast bookmarks don't sync across devices",
+        "text": "I bookmark positions in podcasts on my phone but when I open the desktop app, the bookmarks aren't there. Podcast progress doesn't sync either. This is a basic feature that should work.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=17",
+        "date": "2026-06-03T21:14:00Z",
+        "author": "Kendall Scott"
+    },
+    {
+        "id": "4342ad2255172394",
+        "source": "Spotify Community",
+        "title": "Search results are not relevant anymore",
+        "text": "When I search for a specific song, the first results are always covers, remixes, or live versions instead of the original. I have to scroll down to find what I'm actually looking for.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=18",
+        "date": "2026-04-13T12:29:00Z",
+        "author": "Rowan Adams"
+    },
+    {
+        "id": "36e9df53329996bc",
+        "source": "Spotify Community",
+        "title": "The new equalizer is too limited",
+        "text": "The built-in equalizer only has 4 bands. Most music apps offer at least 5-6 bands with more frequency control. Please add more granular EQ settings for audiophiles.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=19",
+        "date": "2026-06-06T13:22:00Z",
+        "author": "Hayden Baker"
+    },
+    {
+        "id": "8ad2016da315a4ba",
+        "source": "Spotify Community",
+        "title": "Can't gift premium subscriptions anymore",
+        "text": "I used to be able to gift Spotify Premium to friends and family. The option seems to have been removed. Please bring it back, it was perfect for birthdays and holidays.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=20",
+        "date": "2026-05-22T12:44:00Z",
+        "author": "Blake Nelson"
+    },
+    {
+        "id": "6a28de0992c8d330",
+        "source": "Spotify Community",
+        "title": "Lyrics font size is too small on tablets",
+        "text": "On my iPad, the lyrics are displayed in a very small font that's hard to read from a distance. The font should scale properly for tablet screens or at least be adjustable in settings.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=21",
+        "date": "2026-04-20T18:10:00Z",
+        "author": "Emery Carter"
+    },
+    {
+        "id": "6b7e84c0180f5b50",
+        "source": "Spotify Community",
+        "title": "Background playback stops when screen locks on iOS",
+        "text": "Every few days, Spotify stops playing when I lock my iPhone screen. I have to open the app again to resume. This doesn't happen with other music apps, seems like an iOS-specific bug.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=22",
+        "date": "2026-05-06T15:24:00Z",
+        "author": "Harper Mitchell"
+    },
+    {
+        "id": "50f6081ba55f6c96",
+        "source": "Spotify Community",
+        "title": "The share button shares a link instead of the song",
+        "text": "When I share a song from Spotify, it shares a web link instead of the actual track. The recipient has to open it in a browser first. Please add a direct share option that opens in the Spotify app.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=23",
+        "date": "2026-06-21T19:35:00Z",
+        "author": "Reese Campbell"
+    },
+    {
+        "id": "d7f23410877b3a7c",
+        "source": "Spotify Community",
+        "title": "Need an option to disable auto-play",
+        "text": "Spotify automatically plays 'similar songs' when my playlist ends. I want my music to STOP when the playlist is done. The auto-play toggle in settings doesn't seem to work properly.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=24",
+        "date": "2026-05-22T13:53:00Z",
+        "author": "Phoenix Turner"
+    },
+    {
+        "id": "96c38b3c93d0f58c",
+        "source": "Spotify Community",
+        "title": "Collaborative playlist notifications are missing",
+        "text": "When someone adds a song to our collaborative playlist, I don't get any notification. I only find out when I manually check the playlist. Push notifications for collaborative changes would be great.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=25",
+        "date": "2026-04-08T21:02:00Z",
+        "author": "Wren Phillips"
+    },
+    {
+        "id": "aaa4d18f3cb7dfe7",
+        "source": "Spotify Community",
+        "title": "The dark mode is too dark",
+        "text": "The current dark mode is pure black which causes eye strain in low light. A slightly lighter dark theme (like dark gray) would be much more comfortable. Other apps offer multiple dark theme options.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=26",
+        "date": "2026-06-13T12:04:00Z",
+        "author": "Ellis Edwards"
+    },
+    {
+        "id": "e5f2b8066912fcb7",
+        "source": "Spotify Community",
+        "title": "Can't filter liked songs by genre",
+        "text": "My liked songs list has over 10,000 songs but there's no way to filter by genre, mood, or era. I have to scroll through everything to find specific types of songs. Genre tags would make this manageable.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=27",
+        "date": "2026-05-19T22:45:00Z",
+        "author": "Jules Collins"
+    },
+    {
+        "id": "53c0cbf3cac0ecb6",
+        "source": "Spotify Community",
+        "title": "The social sharing preview is broken",
+        "text": "When I share a Spotify link on social media, the preview often shows the wrong song or no image at all. The Open Graph metadata seems to be broken for many tracks.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=28",
+        "date": "2026-06-07T18:31:00Z",
+        "author": "August Stewart"
+    },
+    {
+        "id": "bb8d4d4a715091a4",
+        "source": "Spotify Community",
+        "title": "Offline mode uses too much storage",
+        "text": "Spotify is using 15GB of storage on my phone but I only have about 5GB of music downloaded. The cache seems to be growing without limit. There should be a cache size limit setting.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=29",
+        "date": "2026-07-21T15:09:00Z",
+        "author": "Lennox Morris"
+    },
+    {
+        "id": "6d07acb41c19c565",
+        "source": "Spotify Community",
+        "title": "The podcast transcript feature is inaccurate",
+        "text": "The auto-generated transcripts for podcasts are full of errors. Proper nouns, technical terms, and foreign words are consistently wrong. At least let podcasters upload their own transcripts.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=30",
+        "date": "2026-06-05T11:47:00Z",
+        "author": "Arden Rogers"
+    },
+    {
+        "id": "a3ff9412a1a197e5",
+        "source": "Spotify Community",
+        "title": "Can't add songs to multiple playlists at once",
+        "text": "When I want to add a song to several playlists, I have to do it one at a time. A multi-select playlist picker would save so much time for power users.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=31",
+        "date": "2026-06-24T17:27:00Z",
+        "author": "Peyton Reed"
+    },
+    {
+        "id": "1402bf95c1f7cb4b",
+        "source": "Spotify Community",
+        "title": "The now playing screen covers playback controls",
+        "text": "On smaller phones, the expanded now playing view covers the playback controls. I have to minimize it to skip or pause. The controls should always be accessible regardless of the view.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=32",
+        "date": "2026-07-12T11:08:00Z",
+        "author": "Sawyer Cook"
+    },
+    {
+        "id": "9147d57f8becc822",
+        "source": "Spotify Community",
+        "title": "Spotify Kids app needs more parental controls",
+        "text": "The Spotify Kids app is great but the parental controls are too basic. I want to set daily time limits, block specific content, and get usage reports. Other kids apps have much better controls.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=33",
+        "date": "2026-07-03T20:03:00Z",
+        "author": "River Morgan"
+    },
+    {
+        "id": "031a5c004d210db6",
+        "source": "Spotify Community",
+        "title": "Can't import playlists from other services easily",
+        "text": "Switching from Tidal/Apple Music to Spotify means losing all my carefully curated playlists. Spotify should offer better import tools for migrating from competitors.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=34",
+        "date": "2026-04-05T18:10:00Z",
+        "author": "Tatum Bell"
+    },
+    {
+        "id": "13ab9319b94b15f3",
+        "source": "Spotify Community",
+        "title": "The artist page redesign hid important info",
+        "text": "The new artist page moved the discography and similar artists sections further down. I used to check new releases easily but now I have to scroll past a huge header image to find anything useful.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=35",
+        "date": "2026-07-20T09:24:00Z",
+        "author": "Oakley Murphy"
+    },
+    {
+        "id": "c9bffee125856fe6",
+        "source": "Spotify Community",
+        "title": "Volume slider disappears during playback",
+        "text": "The volume slider in the now playing view disappears after a few seconds. I have to tap the screen to bring it back every time I want to adjust volume. Please keep it visible or add a persistent option.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=36",
+        "date": "2026-07-20T15:33:00Z",
+        "author": "Remi Bailey"
+    },
+    {
+        "id": "78456d07b13386b4",
+        "source": "Spotify Community",
+        "title": "The year-end review is limited to top 5 songs",
+        "text": "Spotify Wrapped only shows my top 5 songs but I want to see top 50 or even top 100. The full year of listening data is there, why not show more of it?",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=37",
+        "date": "2026-06-18T21:00:00Z",
+        "author": "Kai Rivera"
+    },
+    {
+        "id": "426756fa24d95026",
+        "source": "Spotify Community",
+        "title": "Can't set different audio quality per connection type",
+        "text": "I want high quality on WiFi but normal quality on mobile data to save bandwidth. Currently it's one global setting. Please add separate quality options for WiFi, mobile, and download.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=38",
+        "date": "2026-04-22T22:34:00Z",
+        "author": "Eden Cooper"
+    }
+]

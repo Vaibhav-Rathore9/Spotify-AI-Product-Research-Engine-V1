@@ -7,6 +7,7 @@ from utils.scraper_result import ScraperResult
 logger = logging.getLogger(__name__)
 
 CACHE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "cache")
+FALLBACK_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "fallback")
 
 # Ensure cache directory exists
 os.makedirs(CACHE_DIR, exist_ok=True)
@@ -41,6 +42,20 @@ def load_cache(source_name):
             logger.error(f"Failed to load cache for {source_name}: {e}")
     return []
 
+def load_fallback(source_name):
+    """Load pre-committed fallback data from data/fallback/ directory."""
+    safe_name = source_name.lower().replace(" ", "_")
+    filepath = os.path.join(FALLBACK_DIR, f"{safe_name}.json")
+    if os.path.exists(filepath):
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            logger.info(f"Loaded {len(data)} fallback items for {source_name}")
+            return data
+        except Exception as e:
+            logger.error(f"Failed to load fallback for {source_name}: {e}")
+    return []
+
 def fetch_with_cache(source_name, scraper_fn, count=100, use_cache: bool = False) -> ScraperResult:
     """
     Fetch data using the scraper function with intelligent caching.
@@ -73,9 +88,13 @@ def fetch_with_cache(source_name, scraper_fn, count=100, use_cache: bool = False
             result.used_cache = False
             logger.info(f"Scraping succeeded for {source_name}: {result.review_count} reviews")
         elif not result.success:
-            # Scraping failed, try to load from cache as fallback
+            # Scraping failed, try runtime cache then fallback data
             logger.warning(f"Scraping failed for {source_name}: {result.error}")
             cached_data = load_cache(source_name)
+            if not cached_data:
+                cached_data = load_fallback(source_name)
+                if cached_data:
+                    logger.info(f"Using fallback data for {source_name}: {len(cached_data)} reviews")
             if cached_data:
                 logger.info(f"Falling back to cached data for {source_name}: {len(cached_data)} reviews")
                 result.reviews = cached_data
@@ -88,8 +107,10 @@ def fetch_with_cache(source_name, scraper_fn, count=100, use_cache: bool = False
         
     except Exception as e:
         logger.exception(f"Unexpected error scraping {source_name}: {str(e)}")
-        # Try to load from cache on exception
+        # Try runtime cache then fallback on exception
         cached_data = load_cache(source_name)
+        if not cached_data:
+            cached_data = load_fallback(source_name)
         if cached_data:
             logger.info(f"Falling back to cached data for {source_name}: {len(cached_data)} reviews")
             return ScraperResult.failure_result(
