@@ -5,10 +5,14 @@ Fetches live posts from the /r/spotify subreddit via its public RSS/Atom feed
 and returns them in the standardized review schema.
 """
 
+import logging
 import requests
 import xml.etree.ElementTree as ET
 import re
 from html import unescape
+from utils.scraper_result import ScraperResult
+
+logger = logging.getLogger(__name__)
 
 # Target subreddits for Spotify discussions
 SUBREDDITS = ["spotify"]
@@ -40,7 +44,7 @@ def _clean_html(raw_html):
     return text
 
 
-def scrape_reddit(count=100):
+def scrape_reddit(count=100) -> ScraperResult:
     """
     Fetch live Spotify reviews/posts from Reddit.
 
@@ -48,9 +52,9 @@ def scrape_reddit(count=100):
         count: Number of posts to fetch (default 100).
 
     Returns:
-        List[dict]: Posts in the standardized schema:
-            {id, source, title, text, url, date, author}
+        ScraperResult: Standardized result object with reviews and metadata.
     """
+    logger.info(f"Starting Reddit scraper for {count} reviews")
     all_posts = []
     
     # Common browser User-Agents to rotate through to avoid 429 rate limiting
@@ -64,9 +68,11 @@ def scrape_reddit(count=100):
 
     for sub in SUBREDDITS:
         url = RSS_URL_TEMPLATE.format(subreddit=sub)
+        logger.info(f"Fetching Reddit subreddit: {sub}")
         
         # Try different User-Agents in case of rate limiting
         resp = None
+        last_error = None
         for ua in user_agents:
             headers = {"User-Agent": ua}
             try:
@@ -74,17 +80,21 @@ def scrape_reddit(count=100):
                 if r.status_code == 200:
                     resp = r
                     break
-            except Exception:
+                else:
+                    last_error = f"HTTP {r.status_code}"
+            except Exception as e:
+                last_error = str(e)
                 continue
                 
         if not resp:
-            # Skip if we couldn't fetch from the subreddit
-            continue
+            logger.error(f"Failed to fetch Reddit posts: {last_error}")
+            return ScraperResult.failure_result("Reddit", f"Failed to fetch: {last_error}")
 
         try:
             root = ET.fromstring(resp.text)
-        except Exception:
-            continue
+        except Exception as e:
+            logger.error(f"Failed to parse Reddit XML: {str(e)}")
+            return ScraperResult.failure_result("Reddit", f"XML parse error: {str(e)}")
 
         for entry in root.findall("atom:entry", NS):
             post_id = entry.findtext("atom:id", "", NS)
@@ -97,7 +107,7 @@ def scrape_reddit(count=100):
             # Content is typically in atom:content as HTML
             content_html = entry.findtext("atom:content", "", NS)
             clean_text = _clean_html(content_html)
-
+            
             # Extract link href
             link_elem = entry.find("atom:link", NS)
             url_link = link_elem.attrib.get("href", "") if link_elem is not None else ""
@@ -128,9 +138,11 @@ def scrape_reddit(count=100):
             break
 
     if not all_posts:
-        return FALLBACK_REDDIT_POSTS[:count]
+        logger.warning("No Reddit posts found, using fallback data")
+        return ScraperResult.success_result("Reddit", FALLBACK_REDDIT_POSTS[:count])
 
-    return all_posts[:count]
+    logger.info(f"Successfully scraped {len(all_posts)} posts from Reddit")
+    return ScraperResult.success_result("Reddit", all_posts[:count])
 
 
 # Fallback posts used when Reddit RSS is rate-limited (429) or offline

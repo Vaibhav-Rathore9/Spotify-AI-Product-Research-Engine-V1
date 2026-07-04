@@ -6,11 +6,15 @@ Fetches live posts from the Spotify Community forum
 and returns them in the standardized review schema.
 """
 
+import logging
 import requests
 import xml.etree.ElementTree as ET
 import re
 import hashlib
 from html import unescape
+from utils.scraper_result import ScraperResult
+
+logger = logging.getLogger(__name__)
 
 # Board IDs mapped to readable names — covers the main Help categories
 BOARD_IDS = [
@@ -57,17 +61,21 @@ def _fetch_board(board_id):
         List[dict]: Posts in the standardized schema.
     """
     url = RSS_URL_TEMPLATE.format(board_id=board_id)
+    logger.info(f"Fetching Spotify Community board: {board_id}")
+    
     try:
         resp = requests.get(url, timeout=15, headers={
             "User-Agent": "SpotifyReviewEngine/1.0 (Research)"
         })
         resp.raise_for_status()
-    except requests.RequestException:
+    except requests.RequestException as e:
+        logger.error(f"HTTP error fetching board {board_id}: {str(e)}")
         return []
 
     try:
         root = ET.fromstring(resp.text)
-    except ET.ParseError:
+    except ET.ParseError as e:
+        logger.error(f"XML parse error for board {board_id}: {str(e)}")
         return []
 
     posts = []
@@ -91,10 +99,11 @@ def _fetch_board(board_id):
             "author": author,
         })
 
+    logger.info(f"Fetched {len(posts)} posts from board {board_id}")
     return posts
 
 
-def scrape_spotify_community(count=100):
+def scrape_spotify_community(count=100) -> ScraperResult:
     """
     Fetch live posts from the Spotify Community forum.
 
@@ -104,13 +113,16 @@ def scrape_spotify_community(count=100):
         count: Maximum number of posts to return (default 100).
 
     Returns:
-        List[dict]: Posts in the standardized schema:
-            {id, source, title, text, url, date, author}
+        ScraperResult: Standardized result object with reviews and metadata.
     """
+    logger.info(f"Starting Spotify Community scraper for {count} reviews")
     all_posts = []
+    errors = []
 
     for board_id in BOARD_IDS:
         board_posts = _fetch_board(board_id)
+        if not board_posts:
+            errors.append(f"Board {board_id} returned no posts")
         all_posts.extend(board_posts)
 
         # Stop early if we already have enough
@@ -125,4 +137,12 @@ def scrape_spotify_community(count=100):
             seen.add(post["id"])
             unique_posts.append(post)
 
-    return unique_posts[:count]
+    final_posts = unique_posts[:count]
+    
+    if not final_posts:
+        error_msg = "; ".join(errors[:3]) if errors else "All boards returned no posts"
+        logger.warning(f"Spotify Community scraping returned 0 posts: {error_msg}")
+        return ScraperResult.failure_result("Spotify Community", error_msg)
+    
+    logger.info(f"Successfully scraped {len(final_posts)} posts from Spotify Community")
+    return ScraperResult.success_result("Spotify Community", final_posts)

@@ -6,6 +6,7 @@ Google Play Store and Spotify Community.
 """
 
 import streamlit as st
+import logging
 from scrapers.playstore import scrape_playstore
 from scrapers.spotify_community import scrape_spotify_community
 from scrapers.reddit import scrape_reddit
@@ -13,6 +14,13 @@ from utils.cache import fetch_with_cache
 from ai.tag_reviews import tag_reviews_batch
 from ai.cluster_reviews import cluster_reviews
 from ai.generate_dashboard import generate_dashboard_data
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 
 # ── Page Config ──────────────────────────────────────────────
@@ -51,62 +59,6 @@ st.markdown("""
         font-size: 1.05rem;
         opacity: 0.85;
         margin-top: 0.5rem;
-    }
-
-    /* Review card */
-    .review-card {
-        background: #1a1a2e;
-        border: 1px solid rgba(255,255,255,0.06);
-        border-radius: 12px;
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .review-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(29, 185, 84, 0.15);
-        border-color: rgba(29, 185, 84, 0.3);
-    }
-    .review-meta {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0.75rem;
-        font-size: 0.85rem;
-        opacity: 0.7;
-    }
-    .review-author {
-        font-weight: 600;
-        color: #1DB954;
-        font-size: 0.95rem;
-    }
-    .review-text {
-        font-size: 0.95rem;
-        line-height: 1.6;
-        color: #e0e0e0;
-    }
-    .review-title {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #ffffff;
-        margin-bottom: 0.5rem;
-    }
-    .review-rating {
-        background: linear-gradient(135deg, #1DB954, #1ed760);
-        color: #000;
-        padding: 0.25rem 0.75rem;
-        border-radius: 20px;
-        font-weight: 600;
-        font-size: 0.8rem;
-    }
-    .source-badge {
-        background: rgba(29, 185, 84, 0.15);
-        color: #1DB954;
-        padding: 0.2rem 0.6rem;
-        border-radius: 6px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        border: 1px solid rgba(29, 185, 84, 0.3);
     }
 
     /* Stats bar */
@@ -159,48 +111,6 @@ st.markdown("""
         border-top: 1px solid rgba(255,255,255,0.06);
         margin: 1.5rem 0;
     }
-
-    /* Tag badges */
-    .tag-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-    }
-    .tag-badge {
-        font-size: 0.75rem;
-        font-weight: 500;
-        padding: 0.3rem 0.65rem;
-        border-radius: 6px;
-        display: inline-flex;
-        align-items: center;
-        border: 1px solid transparent;
-    }
-    .tag-pain-point {
-        background: rgba(239, 68, 68, 0.1);
-        color: #ef4444;
-        border-color: rgba(239, 68, 68, 0.2);
-    }
-    .tag-user-goal {
-        background: rgba(59, 130, 246, 0.1);
-        color: #3b82f6;
-        border-color: rgba(59, 130, 246, 0.2);
-    }
-    .tag-behavior {
-        background: rgba(107, 114, 128, 0.1);
-        color: #9ca3af;
-        border-color: rgba(107, 114, 128, 0.2);
-    }
-    .tag-emotion {
-        background: rgba(245, 158, 11, 0.1);
-        color: #f59e0b;
-        border-color: rgba(245, 158, 11, 0.2);
-    }
-    .tag-discovery-barrier {
-        background: rgba(139, 92, 246, 0.1);
-        color: #8b5cf6;
-        border-color: rgba(139, 92, 246, 0.2);
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -232,6 +142,23 @@ with col_count:
         step=10,
     )
 
+# ── Caching & Refresh Controls ──────────────────────────────
+col_cache, col_refresh = st.columns([1, 1])
+
+with col_cache:
+    use_cache = st.checkbox(
+        "☑ Use Cached Data",
+        value=False,
+        help="When checked, will use cached data if available. Unchecked always attempts fresh scraping."
+    )
+
+with col_refresh:
+    refresh_clicked = st.button(
+        "🔄 Refresh Live Reviews",
+        use_container_width=True,
+        help="Ignore cache completely and fetch fresh data from all sources."
+    )
+
 fetch_clicked = st.button("🔍  Analyze Live Reviews", use_container_width=True)
 
 # ── Scraper registry ─────────────────────────────────────────
@@ -242,20 +169,58 @@ SCRAPERS = {
 }
 
 # ── Fetch & Display ──────────────────────────────────────────
-if fetch_clicked:
+if fetch_clicked or refresh_clicked:
     if not sources:
         st.warning("Please select at least one review source.")
     else:
         all_reviews = []
+        scraper_results = []
+        
+        # If refresh clicked, always ignore cache
+        if refresh_clicked:
+            use_cache = False
+            logger.info("Refresh requested - ignoring cache")
 
         for source_name in sources:
             scraper_fn = SCRAPERS[source_name]
             with st.spinner(f"Fetching reviews from {source_name}..."):
-                try:
-                    reviews_data = fetch_with_cache(source_name, scraper_fn, count=review_count)
-                    all_reviews.extend(reviews_data)
-                except Exception as e:
-                    st.error(f"Failed to fetch from {source_name}: {e}")
+                result = fetch_with_cache(source_name, scraper_fn, count=review_count, use_cache=use_cache)
+                scraper_results.append(result)
+                all_reviews.extend(result.reviews)
+                
+                # Print diagnostics to terminal
+                if result.success:
+                    logger.info(f"✓ {source_name}: {result.review_count} reviews")
+                else:
+                    logger.error(f"✗ {source_name}: {result.error}")
+
+        # ── Display Scraping Diagnostics ──────────────────────
+        if scraper_results:
+            st.markdown('<hr class="section-divider">', unsafe_allow_html=True)
+            st.subheader("📋 Scraping Diagnostics")
+            
+            diag_cols = st.columns(len(scraper_results))
+            
+            for idx, result in enumerate(scraper_results):
+                with diag_cols[idx]:
+                    if result.success and result.review_count > 0:
+                        st.success(f"✓ {result.source}")
+                        source_text = "Live Data" if not result.used_cache else "Loaded From Cache"
+                        st.caption(f"{result.review_count} reviews — {source_text}")
+                    elif result.success and result.review_count == 0:
+                        st.warning(f"⚠ {result.source}")
+                        st.caption("0 reviews returned")
+                        if result.error:
+                            st.caption(f"Reason: {result.error}")
+                    else:
+                        st.error(f"⚠ {result.source}")
+                        st.caption("0 reviews")
+                        if result.error:
+                            st.caption(f"Reason: {result.error}")
+                        if result.used_cache:
+                            st.info("Loaded From Cache")
+            
+            st.markdown('<hr class="section-divider">', unsafe_allow_html=True)
 
         if all_reviews:
             # ── AI Tagging & Clustering ──────────────────────
@@ -414,36 +379,35 @@ if fetch_clicked:
                     if len(display_text) > 500:
                         display_text = display_text[:500] + "..."
 
-                    # Source-specific badge
                     source_label = review.get("source", "Unknown")
-                    title_html = ""
-                    badge_html = f'<span class="source-badge">{source_label}</span>'
 
-                    if source_label == "Google Play Store":
-                        badge_html = f'<span class="review-rating">{review.get("title", "")}</span>'
-                    else:
-                        title_html = f'<div class="review-title">{review.get("title", "")}</div>'
+                    with st.container(border=True):
+                        col_author, col_badge = st.columns([3, 1])
+                        with col_author:
+                            st.markdown(f"**👤 {review['author']}**")
+                        with col_badge:
+                            if source_label == "Google Play Store":
+                                st.markdown(f"`{review.get('title', '')}`")
+                            else:
+                                st.caption(source_label)
 
-                    st.markdown(f"""
-                    <div class="review-card">
-                        <div class="review-meta">
-                            <span class="review-author">👤 {review['author']}</span>
-                            {badge_html}
-                        </div>
-                        {title_html}
-                        <div class="review-text">{display_text}</div>
-                        <div class="tag-container">
-                            <span class="tag-badge tag-pain-point">⚠️ Pain: {review.get('pain_point', 'N/A')}</span>
-                            <span class="tag-badge tag-user-goal">🎯 Goal: {review.get('user_goal', 'N/A')}</span>
-                            <span class="tag-badge tag-behavior">🎧 Behavior: {review.get('behavior', 'N/A')}</span>
-                            <span class="tag-badge tag-emotion">🎭 Emotion: {review.get('emotion', 'N/A')}</span>
-                            <span class="tag-badge tag-discovery-barrier">🛑 Barrier: {review.get('discovery_barrier', 'N/A')}</span>
-                        </div>
-                        <div class="review-meta" style="margin-top: 0.75rem; margin-bottom: 0;">
-                            <span>📅 {review['date']}</span>
-                            <span class="source-badge">{source_label}</span>
-                        </div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                        if source_label != "Google Play Store":
+                            st.markdown(f"**{review.get('title', '')}**")
+
+                        st.markdown(display_text)
+
+                        tag_col1, tag_col2, tag_col3, tag_col4, tag_col5 = st.columns(5)
+                        with tag_col1:
+                            st.caption(f"⚠️ Pain: {review.get('pain_point', 'N/A')}")
+                        with tag_col2:
+                            st.caption(f"🎯 Goal: {review.get('user_goal', 'N/A')}")
+                        with tag_col3:
+                            st.caption(f"🎧 Behavior: {review.get('behavior', 'N/A')}")
+                        with tag_col4:
+                            st.caption(f"🎭 Emotion: {review.get('emotion', 'N/A')}")
+                        with tag_col5:
+                            st.caption(f"🛑 Barrier: {review.get('discovery_barrier', 'N/A')}")
+
+                        st.caption(f"📅 {review['date']}  ·  {source_label}")
         else:
             st.warning("No reviews were returned. Try again.")
