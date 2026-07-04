@@ -7,12 +7,19 @@ and returns them in the standardized review schema.
 """
 
 import logging
-import requests
 import xml.etree.ElementTree as ET
 import re
 import hashlib
+import time
 from html import unescape
 from utils.scraper_result import ScraperResult
+
+try:
+    from curl_cffi import requests as http_requests
+    _HTTP_SESSION_CLASS = "curl_cffi"
+except ImportError:
+    import requests as http_requests
+    _HTTP_SESSION_CLASS = "requests"
 
 logger = logging.getLogger(__name__)
 
@@ -53,22 +60,31 @@ def _generate_id(link):
     return hashlib.md5(link.encode()).hexdigest()[:16]
 
 
-def _fetch_board(board_id):
+def _fetch_board(board_id, session=None):
     """
     Fetch posts from a single Spotify Community board via RSS.
+
+    Args:
+        board_id: The board identifier (e.g. 'spotifyandroid').
+        session: Optional pre-created HTTP session for connection reuse.
 
     Returns:
         List[dict]: Posts in the standardized schema.
     """
     url = RSS_URL_TEMPLATE.format(board_id=board_id)
     logger.info(f"Fetching Spotify Community board: {board_id}")
+
+    # Create a session if none provided
+    if session is None:
+        if _HTTP_SESSION_CLASS == "curl_cffi":
+            session = http_requests.Session(impersonate="chrome")
+        else:
+            session = http_requests.Session()
     
     try:
-        resp = requests.get(url, timeout=15, headers={
-            "User-Agent": "SpotifyReviewEngine/1.0 (Research)"
-        })
+        resp = session.get(url, timeout=20)
         resp.raise_for_status()
-    except requests.RequestException as e:
+    except Exception as e:
         logger.error(f"HTTP error fetching board {board_id}: {str(e)}")
         return []
 
@@ -119,11 +135,20 @@ def scrape_spotify_community(count=100) -> ScraperResult:
     all_posts = []
     errors = []
 
+    # Create one session for all board requests (reuses TCP connections)
+    if _HTTP_SESSION_CLASS == "curl_cffi":
+        session = http_requests.Session(impersonate="chrome")
+    else:
+        session = http_requests.Session()
+
     for board_id in BOARD_IDS:
-        board_posts = _fetch_board(board_id)
+        board_posts = _fetch_board(board_id, session=session)
         if not board_posts:
             errors.append(f"Board {board_id} returned no posts")
         all_posts.extend(board_posts)
+
+        # Small delay between boards to be respectful
+        time.sleep(0.5)
 
         # Stop early if we already have enough
         if len(all_posts) >= count:

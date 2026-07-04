@@ -5,19 +5,32 @@ Fetches live posts from the /r/spotify subreddit via its public RSS/Atom feed
 and returns them in the standardized review schema.
 """
 
+import json
 import logging
-import requests
 import xml.etree.ElementTree as ET
 import re
+import time
 from html import unescape
 from utils.scraper_result import ScraperResult
+
+try:
+    from curl_cffi import requests as http_requests
+    _HTTP_SESSION_CLASS = "curl_cffi"
+except ImportError:
+    import requests as http_requests
+    _HTTP_SESSION_CLASS = "requests"
 
 logger = logging.getLogger(__name__)
 
 # Target subreddits for Spotify discussions
 SUBREDDITS = ["spotify"]
 RSS_URL_TEMPLATE = "https://www.reddit.com/r/{subreddit}/new.rss"
+JSON_URL_TEMPLATE = "https://www.reddit.com/r/{subreddit}/new.json?limit=100"
+TOP_JSON_URL = "https://www.reddit.com/r/{subreddit}/top.json?limit=100&t=month"
 NS = {"atom": "http://www.w3.org/2005/Atom"}
+
+# Reddit's recommended User-Agent for bots (not browser UA — Reddit respects this)
+REDDIT_BOT_UA = "SpotifyProductResearch/1.0 (product research; by /u/research-bot)"
 
 
 def _clean_html(raw_html):
@@ -44,9 +57,121 @@ def _clean_html(raw_html):
     return text
 
 
+def _make_request(url, timeout=15):
+    """
+    Make an HTTP request with the best available method.
+    Uses curl_cffi with browser impersonation if available, otherwise
+    plain requests with Reddit's recommended bot User-Agent.
+    """
+    if _HTTP_SESSION_CLASS == "curl_cffi":
+        session = http_requests.Session(impersonate="chrome")
+        return session.get(url, timeout=timeout)
+    else:
+        headers = {"User-Agent": REDDIT_BOT_UA}
+        return http_requests.get(url, headers=headers, timeout=timeout)
+
+
+def _fetch_rss_posts(url, seen_ids):
+    """Fetch posts from a Reddit RSS/Atom feed URL."""
+    resp = _make_request(url)
+    if resp.status_code != 200:
+        return [], resp.status_code
+
+    try:
+        root = ET.fromstring(resp.text)
+    except Exception as e:
+        logger.error(f"Failed to parse Reddit XML from {url}: {e}")
+        return [], resp.status_code
+
+    posts = []
+    for entry in root.findall("atom:entry", NS):
+        post_id = entry.findtext("atom:id", "", NS)
+        if "_" in post_id:
+            post_id = post_id.split("_", 1)[1]
+        if post_id in seen_ids:
+            continue
+        seen_ids.add(post_id)
+
+        title = entry.findtext("atom:title", "", NS)
+        content_html = entry.findtext("atom:content", "", NS)
+        clean_text = _clean_html(content_html)
+
+        link_elem = entry.find("atom:link", NS)
+        url_link = link_elem.attrib.get("href", "") if link_elem is not None else ""
+
+        author_elem = entry.find("atom:author", NS)
+        author = author_elem.findtext("atom:name", "Anonymous", NS) if author_elem is not None else "Anonymous"
+        if author.startswith("/u/"):
+            author = author[3:]
+
+        date_str = entry.findtext("atom:updated", "", NS)
+
+        posts.append({
+            "id": post_id,
+            "source": "Reddit",
+            "title": title,
+            "text": clean_text,
+            "url": url_link,
+            "date": date_str,
+            "author": author,
+        })
+
+    return posts, resp.status_code
+
+
+def _fetch_json_posts(url, seen_ids):
+    """Fetch posts from a Reddit JSON API endpoint."""
+    resp = _make_request(url)
+    if resp.status_code != 200:
+        return [], resp.status_code
+
+    try:
+        data = resp.json()
+    except Exception as e:
+        logger.error(f"Failed to parse Reddit JSON from {url}: {e}")
+        return [], resp.status_code
+
+    children = data.get("data", {}).get("children", [])
+    posts = []
+    for child in children:
+        post_data = child.get("data", {})
+        post_id = post_data.get("id", "")
+        if not post_id or post_id in seen_ids:
+            continue
+        seen_ids.add(post_id)
+
+        title = post_data.get("title", "")
+        selftext = post_data.get("selftext", "")
+        author = post_data.get("author", "Anonymous")
+        permalink = post_data.get("permalink", "")
+        url_link = f"https://www.reddit.com{permalink}" if permalink else ""
+        created_utc = post_data.get("created_utc", "")
+
+        # Convert UTC timestamp to ISO format
+        date_str = ""
+        if created_utc:
+            from datetime import datetime, timezone
+            date_str = datetime.fromtimestamp(created_utc, tz=timezone.utc).isoformat()
+
+        posts.append({
+            "id": post_id,
+            "source": "Reddit",
+            "title": title,
+            "text": selftext if selftext else _clean_html(post_data.get("media_embed", {}).get("content", "")),
+            "url": url_link,
+            "date": date_str,
+            "author": author,
+        })
+
+    return posts, resp.status_code
+
+
 def scrape_reddit(count=100) -> ScraperResult:
     """
     Fetch live Spotify reviews/posts from Reddit.
+
+    Tries multiple endpoints (RSS + JSON API) with retry + exponential
+    backoff to handle rate limits. Falls back through endpoints if one fails.
 
     Args:
         count: Number of posts to fetch (default 100).
@@ -55,186 +180,76 @@ def scrape_reddit(count=100) -> ScraperResult:
         ScraperResult: Standardized result object with reviews and metadata.
     """
     logger.info(f"Starting Reddit scraper for {count} reviews")
+
     all_posts = []
-    
-    # Common browser User-Agents to rotate through to avoid 429 rate limiting
-    user_agents = [
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0",
-        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+    seen_ids = set()
+    errors = []
+
+    # Define endpoints to try in order: JSON API first (more data), then RSS
+    json_urls = [
+        JSON_URL_TEMPLATE.format(subreddit="spotify"),
+        TOP_JSON_URL.format(subreddit="spotify"),
+    ]
+    rss_urls = [
+        "https://www.reddit.com/r/spotify/new/.rss",
+        "https://www.reddit.com/r/spotify/.rss",
+        "https://www.reddit.com/r/spotify/top/.rss?t=month",
     ]
 
-    for sub in SUBREDDITS:
-        url = RSS_URL_TEMPLATE.format(subreddit=sub)
-        logger.info(f"Fetching Reddit subreddit: {sub}")
-        
-        # Try different User-Agents in case of rate limiting
-        resp = None
-        last_error = None
-        for ua in user_agents:
-            headers = {"User-Agent": ua}
-            try:
-                r = requests.get(url, headers=headers, timeout=10)
-                if r.status_code == 200:
-                    resp = r
-                    break
-                else:
-                    last_error = f"HTTP {r.status_code}"
-            except Exception as e:
-                last_error = str(e)
-                continue
-                
-        if not resp:
-            logger.error(f"Failed to fetch Reddit posts: {last_error}")
-            return ScraperResult.failure_result("Reddit", f"Failed to fetch: {last_error}")
-
-        try:
-            root = ET.fromstring(resp.text)
-        except Exception as e:
-            logger.error(f"Failed to parse Reddit XML: {str(e)}")
-            return ScraperResult.failure_result("Reddit", f"XML parse error: {str(e)}")
-
-        for entry in root.findall("atom:entry", NS):
-            post_id = entry.findtext("atom:id", "", NS)
-            # Standardize ID to remove prefixes like "t3_" if present
-            if "_" in post_id:
-                post_id = post_id.split("_", 1)[1]
-
-            title = entry.findtext("atom:title", "", NS)
-            
-            # Content is typically in atom:content as HTML
-            content_html = entry.findtext("atom:content", "", NS)
-            clean_text = _clean_html(content_html)
-            
-            # Extract link href
-            link_elem = entry.find("atom:link", NS)
-            url_link = link_elem.attrib.get("href", "") if link_elem is not None else ""
-
-            # Extract author
-            author_elem = entry.find("atom:author", NS)
-            author = author_elem.findtext("atom:name", "Anonymous", NS) if author_elem is not None else "Anonymous"
-            # Reddit authors are prefixed with /u/
-            if author.startswith("/u/"):
-                author = author[3:]
-
-            date_str = entry.findtext("atom:updated", "", NS)
-
-            all_posts.append({
-                "id": post_id,
-                "source": "Reddit",
-                "title": title,
-                "text": clean_text,
-                "url": url_link,
-                "date": date_str,
-                "author": author,
-            })
-
-            if len(all_posts) >= count:
-                break
-
+    # Try JSON API first (returns up to 100 posts per request)
+    for url in json_urls:
         if len(all_posts) >= count:
             break
+        for attempt in range(3):
+            try:
+                posts, status = _fetch_json_posts(url, seen_ids)
+                if status == 200 and posts:
+                    all_posts.extend(posts)
+                    logger.info(f"Fetched {len(posts)} posts from JSON API: {url}")
+                    break
+                elif status == 429:
+                    wait = (2 ** attempt) * 5  # 5s, 10s, 20s
+                    logger.warning(f"Reddit rate-limited (429) on attempt {attempt+1}, waiting {wait}s")
+                    time.sleep(wait)
+                else:
+                    logger.warning(f"Reddit JSON returned HTTP {status} for {url}")
+                    errors.append(f"JSON {url}: HTTP {status}")
+                    break
+            except Exception as e:
+                logger.warning(f"Reddit JSON error on attempt {attempt+1}: {e}")
+                time.sleep(2 ** attempt)
+        time.sleep(1)
+
+    # If JSON API failed, fall back to RSS feeds
+    if not all_posts:
+        logger.info("JSON API returned no data, trying RSS feeds")
+        for url in rss_urls:
+            if len(all_posts) >= count:
+                break
+            for attempt in range(3):
+                try:
+                    posts, status = _fetch_rss_posts(url, seen_ids)
+                    if status == 200 and posts:
+                        all_posts.extend(posts)
+                        logger.info(f"Fetched {len(posts)} posts from RSS: {url}")
+                        break
+                    elif status == 429:
+                        wait = (2 ** attempt) * 5
+                        logger.warning(f"Reddit rate-limited (429) on attempt {attempt+1}, waiting {wait}s")
+                        time.sleep(wait)
+                    else:
+                        logger.warning(f"Reddit RSS returned HTTP {status} for {url}")
+                        errors.append(f"RSS {url}: HTTP {status}")
+                        break
+                except Exception as e:
+                    logger.warning(f"Reddit RSS error on attempt {attempt+1}: {e}")
+                    time.sleep(2 ** attempt)
+            time.sleep(2)
 
     if not all_posts:
-        logger.warning("No Reddit posts found, using fallback data")
-        return ScraperResult.success_result("Reddit", FALLBACK_REDDIT_POSTS[:count])
+        error_msg = "; ".join(errors[:3]) if errors else "All endpoints returned no data"
+        logger.warning(f"No Reddit posts found: {error_msg}")
+        return ScraperResult.failure_result("Reddit", error_msg)
 
-    logger.info(f"Successfully scraped {len(all_posts)} posts from Reddit")
+    logger.info(f"Successfully scraped {len(all_posts)} total posts from Reddit")
     return ScraperResult.success_result("Reddit", all_posts[:count])
-
-
-# Fallback posts used when Reddit RSS is rate-limited (429) or offline
-FALLBACK_REDDIT_POSTS = [
-    {
-        "id": "ui_disaster",
-        "source": "Reddit",
-        "title": "The new UI update is a disaster",
-        "text": "I can't believe they changed the UI layout again. Finding my liked songs now takes three clicks instead of one. Why does Spotify keep making changes nobody asked for?",
-        "url": "https://www.reddit.com/r/spotify/comments/ui_disaster",
-        "date": "2026-07-01T15:20:00Z",
-        "author": "pixel_pusher"
-    },
-    {
-        "id": "smart_shuffle_issue",
-        "source": "Reddit",
-        "title": "Smart Shuffle is so annoying, please let us turn it off permanently",
-        "text": "Every time I click shuffle on my playlist, it defaults to 'Smart Shuffle' and starts inserting random songs I don't know and don't want to hear. I just want standard random shuffle of my own songs. This is incredibly frustrating.",
-        "url": "https://www.reddit.com/r/spotify/comments/smart_shuffle_issue",
-        "date": "2026-07-01T18:45:00Z",
-        "author": "classic_listener"
-    },
-    {
-        "id": "local_files_sync",
-        "source": "Reddit",
-        "title": "Local files not syncing to my phone anymore",
-        "text": "I've been trying to sync my local MP3 files from my laptop to my Android phone for the last two days. Both devices are on the same Wi-Fi, local files are enabled on both apps, but they just show as greyed out and won't play on mobile. It used to work fine, did a recent update break this?",
-        "url": "https://www.reddit.com/r/spotify/comments/local_files_sync",
-        "date": "2026-07-02T02:10:00Z",
-        "author": "audiophile_rex"
-    },
-    {
-        "id": "android_auto_pause",
-        "source": "Reddit",
-        "title": "Spotify keeps pausing randomly on Android Auto",
-        "text": "Whenever I connect my phone to Android Auto, Spotify starts playing but then randomly pauses every 2 or 3 minutes. I have to manually tap play on my car screen. Other music apps work fine. Is there a fix for this?",
-        "url": "https://www.reddit.com/r/spotify/comments/android_auto_pause",
-        "date": "2026-07-02T05:30:00Z",
-        "author": "road_warrior"
-    },
-    {
-        "id": "lyrics_glitch",
-        "source": "Reddit",
-        "title": "Lyrics disappear from the screen mid-song",
-        "text": "While playing a track, the lyrics view just goes completely blank or stops scrolling halfway through. I have to exit the player and open it again. This has been happening since the last update on iOS 17.",
-        "url": "https://www.reddit.com/r/spotify/comments/lyrics_glitch",
-        "date": "2026-07-02T07:15:00Z",
-        "author": "karaoke_star"
-    },
-    {
-        "id": "liked_songs_folders",
-        "source": "Reddit",
-        "title": "Unmet Need: We need a folder system for liked songs",
-        "text": "I have over 5,000 liked songs and it's just one massive list. I really wish Spotify would let us create sub-folders or tags inside Liked Songs so we can categorize them without making separate playlists.",
-        "url": "https://www.reddit.com/r/spotify/comments/liked_songs_folders",
-        "date": "2026-07-02T08:00:00Z",
-        "author": "playlist_curator"
-    },
-    {
-        "id": "algo_loop",
-        "source": "Reddit",
-        "title": "Recommend section is stuck on the same 5 artists",
-        "text": "My Release Radar and Discover Weekly have been recommending the exact same artists for weeks now. I feel like the algorithm is stuck in a loop. I want to discover actual new music, not the same stuff over and over.",
-        "url": "https://www.reddit.com/r/spotify/comments/algo_loop",
-        "date": "2026-07-02T08:45:00Z",
-        "author": "indie_finder"
-    },
-    {
-        "id": "connect_list_empty",
-        "source": "Reddit",
-        "title": "Spotify Connect device list won't load",
-        "text": "When I click the devices button to cast music to my Sonos or smart TV, the list is just empty. I have to restart my router and phone to get them to show up, even though they're on the exact same network. Super annoying.",
-        "url": "https://www.reddit.com/r/spotify/comments/connect_list_empty",
-        "date": "2026-07-02T09:00:00Z",
-        "author": "smart_home_user"
-    },
-    {
-        "id": "quality_drop",
-        "source": "Reddit",
-        "title": "Audio quality drops randomly on Premium",
-        "text": "I pay for Premium and have download quality set to Very High, but recently the audio quality drops to what sounds like 96kbps mid-song, even when playing offline. Has anyone else noticed this?",
-        "url": "https://www.reddit.com/r/spotify/comments/quality_drop",
-        "date": "2026-07-02T09:15:00Z",
-        "author": "hi_fi_fan"
-    },
-    {
-        "id": "hide_podcasts",
-        "source": "Reddit",
-        "title": "Cannot remove podcast recommendations from home screen",
-        "text": "My entire home screen is filled with podcast recommendations even though I have never listened to a single podcast on Spotify. I just want to see my music playlists. Please give us an option to hide podcasts.",
-        "url": "https://www.reddit.com/r/spotify/comments/hide_podcasts",
-        "date": "2026-07-02T09:30:00Z",
-        "author": "music_only"
-    }
-]
