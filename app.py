@@ -61,33 +61,6 @@ st.markdown("""
         margin-top: 0.5rem;
     }
 
-    /* Stats bar */
-    .stats-bar {
-        display: flex;
-        gap: 1.5rem;
-        margin-bottom: 1.5rem;
-        flex-wrap: wrap;
-    }
-    .stat-chip {
-        background: rgba(29, 185, 84, 0.1);
-        border: 1px solid rgba(29, 185, 84, 0.2);
-        border-radius: 10px;
-        padding: 0.75rem 1.25rem;
-        text-align: center;
-        flex: 1;
-        min-width: 120px;
-    }
-    .stat-chip .stat-value {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #1DB954;
-    }
-    .stat-chip .stat-label {
-        font-size: 0.8rem;
-        opacity: 0.6;
-        margin-top: 0.25rem;
-    }
-
     /* Button override */
     .stButton > button {
         background: linear-gradient(135deg, #1DB954, #1ed760) !important;
@@ -258,27 +231,15 @@ if fetch_clicked or refresh_clicked:
                 f"{name}: {count}" for name, count in source_counts.items()
             )
 
-            stats_html = f"""
-            <div class="stats-bar">
-                <div class="stat-chip">
-                    <div class="stat-value">{len(all_reviews)}</div>
-                    <div class="stat-label">Total Reviews</div>
-                </div>
-                <div class="stat-chip">
-                    <div class="stat-value">{len(source_counts)}</div>
-                    <div class="stat-label">Sources Active</div>
-                </div>
-            """
+            stat_cols = st.columns(3 if avg_rating > 0 else 2)
+            with stat_cols[0]:
+                st.metric("Total Reviews", len(all_reviews))
+            with stat_cols[1]:
+                st.metric("Sources Active", len(source_counts))
             if avg_rating > 0:
-                stats_html += f"""
-                <div class="stat-chip">
-                    <div class="stat-value">{'⭐ ' + f'{avg_rating:.1f}'}</div>
-                    <div class="stat-label">Avg Play Store Rating</div>
-                </div>
-                """
-            stats_html += "</div>"
+                with stat_cols[2]:
+                    st.metric("Avg Play Store Rating", f"⭐ {avg_rating:.1f}")
 
-            st.markdown(stats_html, unsafe_allow_html=True)
             st.markdown(f"**Sources:** {source_summary}")
             st.markdown('<hr class="section-divider">', unsafe_allow_html=True)
 
