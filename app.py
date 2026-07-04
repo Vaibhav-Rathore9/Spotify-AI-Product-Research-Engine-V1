@@ -14,6 +14,7 @@ from utils.cache import fetch_with_cache
 from ai.tag_reviews import tag_reviews_batch
 from ai.cluster_reviews import cluster_reviews
 from ai.generate_dashboard import generate_dashboard_data
+from ai.analyze_discovery import analyze_discovery
 
 # Configure logging
 logging.basicConfig(
@@ -257,11 +258,117 @@ if fetch_clicked or refresh_clicked:
                 except Exception as e:
                     st.error(f"Failed to generate product opportunities: {e}")
 
-            tab_dashboard, tab_opps, tab_reviews = st.tabs([
-                "📊 Product Research Dashboard", 
-                "💡 Product Opportunities", 
+            # ── Music Discovery Analysis ───────────────────
+            discovery_analysis = {}
+            with st.spinner("Running music discovery analysis..."):
+                try:
+                    discovery_analysis = analyze_discovery(all_reviews)
+                except Exception as e:
+                    st.error(f"Failed to run discovery analysis: {e}")
+
+            tab_discovery, tab_dashboard, tab_opps, tab_reviews = st.tabs([
+                "🎵 Music Discovery Analysis",
+                "📊 Product Research Dashboard",
+                "💡 Product Opportunities",
                 "💬 Raw Tagged Reviews"
             ])
+
+            with tab_discovery:
+                if not discovery_analysis:
+                    st.warning("No discovery analysis data available.")
+                else:
+                    da = discovery_analysis
+
+                    # ── Header Stats ─────────────────────────
+                    st.subheader("🎵 Music Discovery Analysis")
+                    st.markdown(
+                        f"Filtered **{da['relevant_reviews']}** discovery-relevant "
+                        f"reviews out of **{da['total_reviews']}** total "
+                        f"({da['filtered_count']} filtered out)."
+                    )
+
+                    src_cols = st.columns(len(da['source_breakdown']) + 1)
+                    with src_cols[0]:
+                        st.metric("Relevant Reviews", da['relevant_reviews'])
+                    for i, (src, cnt) in enumerate(da['source_breakdown'].items()):
+                        with src_cols[i + 1]:
+                            st.metric(src, cnt)
+
+                    st.markdown('<hr class="section-divider">', unsafe_allow_html=True)
+
+                    # ── Two-column layout ────────────────────
+                    left, right = st.columns(2)
+
+                    with left:
+                        # 1. Pain Points
+                        st.markdown("### 1. Discovery Barriers (by mentions)")
+                        for label, count in da['pain_points'].items():
+                            pct = round(100 * count / max(da['relevant_reviews'], 1), 1)
+                            st.markdown(f"**{label}** — {count} mentions ({pct}%)")
+                            st.progress(min(count / max(da['relevant_reviews'], 1), 1.0))
+                        st.markdown("---")
+
+                        # 2. Recommendation Frustrations
+                        st.markdown("### 2. Recommendation Frustrations")
+                        for label, count in da['frustrations'].items():
+                            pct = round(100 * count / max(da['relevant_reviews'], 1), 1)
+                            st.markdown(f"**{label}** — {count} mentions ({pct}%)")
+                        st.markdown("---")
+
+                        # 3. Listening Behaviors
+                        st.markdown("### 3. Listening Behaviors")
+                        for label, count in da['behaviors'].items():
+                            st.markdown(f"- **{label}**: {count} mentions")
+                        st.markdown("---")
+
+                        # 4. Listening Goals
+                        st.markdown("### 4. Listening Goals")
+                        for label, count in da['listening_goals'].items():
+                            st.markdown(f"- **{label}**: {count} mentions")
+
+                    with right:
+                        # 5. User Segments
+                        st.markdown("### 5. User Segments")
+                        for label, count in da['segments'].items():
+                            st.markdown(f"👤 **{label}** — {count} mentions")
+                        st.markdown("---")
+
+                        # 6. Emotions
+                        st.markdown("### 6. Emotions")
+                        for label, count in da['emotions'].items():
+                            st.markdown(f"🎭 **{label}** — {count} mentions ({round(100 * count / max(da['relevant_reviews'], 1), 1)}%)")
+                        st.markdown("---")
+
+                        # 7. Behavioral Barriers
+                        st.markdown("### 7. Behavioral Discovery Barriers")
+                        for label, count in da['barriers'].items():
+                            st.markdown(f"- **{label}**: {count} mentions")
+                        st.markdown("---")
+
+                        # 8. Representative Quotes
+                        st.markdown("### 8. Representative Quotes")
+                        for q in da['representative_quotes']:
+                            st.markdown(f"> *\"{q['quote']}\"* — **{q['source']}**")
+
+                    st.markdown('<hr class="section-divider">', unsafe_allow_html=True)
+
+                    # ── Product Hypotheses ───────────────────
+                    st.subheader("🚀 Product Hypotheses")
+                    for hyp in da['product_hypotheses']:
+                        with st.expander(
+                            f"**Hypothesis {hyp['id']}: {hyp['title']}** "
+                            f"— Evidence: {hyp['evidence_mentions']} mentions "
+                            f"({hyp['evidence_pct']}%) | Confidence: {hyp['confidence']}"
+                        ):
+                            st.markdown(f"**Claim:** {hyp['claim']}")
+                            st.markdown(f"**MVP Approach:** {hyp['mvp']}")
+                            st.markdown(f"**Evidence:** {hyp['evidence_mentions']} relevant mentions ({hyp['evidence_pct']}% of discovery reviews)")
+                            if hyp['supporting_quotes']:
+                                st.markdown("**Supporting Quotes:**")
+                                for q in hyp['supporting_quotes']:
+                                    st.markdown(f"> *\"{q}\"*")
+                            conf_color = {"High": "🟢", "Medium-High": "🟡", "Medium": "🟠", "Low": "🔴"}.get(hyp['confidence'], "⚪")
+                            st.markdown(f"**Confidence:** {conf_color} {hyp['confidence']}")
 
             with tab_dashboard:
                 st.subheader("Product Research Insights")
