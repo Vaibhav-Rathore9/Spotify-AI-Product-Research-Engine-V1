@@ -349,5 +349,824 @@
         "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=38",
         "date": "2026-04-22T22:34:00Z",
         "author": "Eden Cooper"
+    },
+    {
+        "id": "2d2f1152a43fa799",
+        "source": "Spotify Community",
+        "title": "Spotify app uses 2GB of RAM on Android",
+        "text": "I monitored Spotify's memory usage and it consistently uses over 2GB of RAM. My other music apps use less than 500MB. This is causing my phone to slow down significantly.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=40",
+        "date": "2026-03-11T12:15:00Z",
+        "author": "Alex Rivera"
+    },
+    {
+        "id": "ce2b9760d1b4ebcd",
+        "source": "Spotify Community",
+        "title": "The shuffle algorithm is clearly not random",
+        "text": "I analyzed my shuffle output over a month and the distribution is highly skewed. Songs from popular artists play 3-4x more often than less popular ones. This is weighted shuffle, not random.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=41",
+        "date": "2026-02-27T09:18:00Z",
+        "author": "Jordan Chen"
+    },
+    {
+        "id": "1feb08c3fb73c904",
+        "source": "Spotify Community",
+        "title": "Can't play music on two devices simultaneously",
+        "text": "I want to play music on my phone while my kid listens on their tablet under the same account. Other services allow this but Spotify forces single-device playback.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=42",
+        "date": "2026-04-18T13:09:00Z",
+        "author": "Sam Williams"
+    },
+    {
+        "id": "139c2524f416cf6e",
+        "source": "Spotify Community",
+        "title": "The app crashes when I try to edit playlist details",
+        "text": "Every time I try to change a playlist description or reorder songs, the app crashes. This has been happening for 3 updates now on Android 14.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=43",
+        "date": "2026-05-21T22:00:00Z",
+        "author": "Taylor Martinez"
+    },
+    {
+        "id": "b9aaec4c8892a698",
+        "source": "Spotify Community",
+        "title": "Spotify needs a proper desktop widget",
+        "text": "The Spotify desktop experience lacks any kind of mini-player widget. I don't want the full window open all the time. A small floating widget with basic controls would be perfect.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=44",
+        "date": "2026-03-01T21:11:00Z",
+        "author": "Casey Brooks"
+    },
+    {
+        "id": "2d0f580d61804b51",
+        "source": "Spotify Community",
+        "title": "Family plan admin can't see individual usage",
+        "text": "As the family plan admin, I want to see how much each member uses Spotify. Not for surveillance, but to justify the cost. Currently there's zero visibility into member activity.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=45",
+        "date": "2026-02-17T18:11:00Z",
+        "author": "Morgan Lee"
+    },
+    {
+        "id": "39be1fdb2b9ecff2",
+        "source": "Spotify Community",
+        "title": "The new home screen layout is confusing",
+        "text": "The latest update completely reorganized the home screen. Sections I used to access easily are now hidden behind scrolls. Why fix what isn't broken?",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=46",
+        "date": "2026-03-11T09:05:00Z",
+        "author": "Riley Thompson"
+    },
+    {
+        "id": "d11ad41f3c9ed409",
+        "source": "Spotify Community",
+        "title": "Spotify lyrics are out of sync on slow connections",
+        "text": "On slower internet connections, the lyrics fall behind the music by several seconds. They sync back up eventually but the delay is frustrating.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=47",
+        "date": "2026-05-25T14:34:00Z",
+        "author": "Quinn Davis"
+    },
+    {
+        "id": "5d57e75b4263646e",
+        "source": "Spotify Community",
+        "title": "Need an option to lock the Now Playing screen",
+        "text": "I accidentally skip songs all the time because the Now Playing screen is so touch-sensitive. A lock option or gesture prevention would save me a lot of frustration.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=48",
+        "date": "2026-04-07T13:12:00Z",
+        "author": "Avery Wilson"
+    },
+    {
+        "id": "1af2556f138f4075",
+        "source": "Spotify Community",
+        "title": "Podcast auto-download wastes storage space",
+        "text": "Spotify auto-downloads new episodes of podcasts I follow even though I have auto-download turned off. It's eaten through 5GB of storage without my permission.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=49",
+        "date": "2026-01-03T12:44:00Z",
+        "author": "Parker Garcia"
+    },
+    {
+        "id": "b87ad76bb2d6697c",
+        "source": "Spotify Community",
+        "title": "The queue doesn't persist when switching accounts",
+        "text": "My family shares a device. When switching between accounts, the queue is lost. Each profile should maintain its own queue independently.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=50",
+        "date": "2026-05-15T23:04:00Z",
+        "author": "Drew Anderson"
+    },
+    {
+        "id": "c2dfdfafb9bca05b",
+        "source": "Spotify Community",
+        "title": "Love the blend feature but need more control",
+        "text": "Blend is great but I wish I could set a genre focus or mood for the blend. Right now it's a random mix of both profiles. Some guidance would make it better.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=51",
+        "date": "2026-01-27T12:47:00Z",
+        "author": "Jamie Robinson"
+    },
+    {
+        "id": "05a256d2c412530f",
+        "source": "Spotify Community",
+        "title": "The search doesn't support Boolean operators",
+        "text": "I want to search for 'artist NOT live NOT remix' to find studio versions. The search is too basic for anyone who uses it frequently. Add advanced search syntax.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=52",
+        "date": "2026-03-28T08:06:00Z",
+        "author": "Skyler Clark"
+    },
+    {
+        "id": "2eb0451202432330",
+        "source": "Spotify Community",
+        "title": "Spotify Connect keeps connecting to wrong device",
+        "text": "I have 4 Spotify Connect devices and it always connects to the kitchen speaker instead of my office speaker. The preferred device setting doesn't work.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=53",
+        "date": "2026-05-15T08:58:00Z",
+        "author": "Robin Lewis"
+    },
+    {
+        "id": "0d0c67933b324b26",
+        "source": "Spotify Community",
+        "title": "The podcast queue doesn't mix with music queue",
+        "text": "If I'm listening to music and queue a podcast, the podcast doesn't play until all music is done. I want interleaved queues for music and podcasts.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=54",
+        "date": "2026-05-04T14:28:00Z",
+        "author": "Dakota Hall"
+    },
+    {
+        "id": "6ad565da14a60fbe",
+        "source": "Spotify Community",
+        "title": "Volume level changes when switching between songs",
+        "text": "Some songs are noticeably louder or quieter than others despite volume normalization being enabled. The normalization algorithm isn't consistent enough.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=55",
+        "date": "2026-06-25T23:07:00Z",
+        "author": "Finley Young"
+    },
+    {
+        "id": "e6c72c2239725902",
+        "source": "Spotify Community",
+        "title": "The app takes forever to start on cold boot",
+        "text": "Opening Spotify from scratch takes 8-10 seconds on my phone. Other music apps open in 2-3 seconds. The startup time needs serious optimization.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=56",
+        "date": "2026-03-17T07:53:00Z",
+        "author": "Sage Walker"
+    },
+    {
+        "id": "6d1c4360ace50281",
+        "source": "Spotify Community",
+        "title": "Can't add songs to multiple playlists at once",
+        "text": "When I discover a song I like, adding it to 3-4 playlists requires going through the add dialog 3-4 times. A multi-select playlist picker would save so much time.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=57",
+        "date": "2026-04-25T22:15:00Z",
+        "author": "Kendall Scott"
+    },
+    {
+        "id": "49023604058b2cc1",
+        "source": "Spotify Community",
+        "title": "Spotify keeps playing even after I force stop it",
+        "text": "I force stop Spotify but it somehow restarts and resumes playback. This happens on Android. It feels like the app is ignoring the force stop command.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=58",
+        "date": "2026-02-19T21:25:00Z",
+        "author": "Rowan Adams"
+    },
+    {
+        "id": "313844fbd92dfd01",
+        "source": "Spotify Community",
+        "title": "The genre browsing feature is hidden and limited",
+        "text": "Genre browsing used to be front and center. Now it's buried in search and only shows about 20 genres. There are way more genres in music than what Spotify acknowledges.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=59",
+        "date": "2026-06-05T18:00:00Z",
+        "author": "Hayden Baker"
+    },
+    {
+        "id": "6b9a0a29cc0f2537",
+        "source": "Spotify Community",
+        "title": "Need a 'mood' or 'energy' filter for playlists",
+        "text": "Spotify tags songs with mood and energy data internally but doesn't expose it to users. I want to filter my 5000-song library by mood and energy level.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=60",
+        "date": "2026-01-02T21:40:00Z",
+        "author": "Blake Nelson"
+    },
+    {
+        "id": "05a0bd4506553148",
+        "source": "Spotify Community",
+        "title": "The podcast speed control goes too high",
+        "text": "The max podcast speed is 3.5x but I want 4x or even 5x for content I'm familiar with. Some podcast apps offer up to 5x. Spotify should match or exceed that.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=61",
+        "date": "2026-01-24T17:48:00Z",
+        "author": "Emery Carter"
+    },
+    {
+        "id": "313b96317a50e192",
+        "source": "Spotify Community",
+        "title": "Spotify wrapped predictions were wrong for me",
+        "text": "My Wrapped said my top genre was Pop but I mostly listened to Classical and Jazz. The genre classification algorithm is seriously flawed if it thinks classical is pop.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=62",
+        "date": "2026-04-04T14:32:00Z",
+        "author": "Harper Mitchell"
+    },
+    {
+        "id": "d87904145c0b19e0",
+        "source": "Spotify Community",
+        "title": "The library sort options are too limited",
+        "text": "I can only sort by Recently Added, Recently Played, and Alphabetical. I want to sort by play count, date added, artist, genre, and custom order.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=63",
+        "date": "2026-05-23T21:03:00Z",
+        "author": "Reese Campbell"
+    },
+    {
+        "id": "793b3509a739223c",
+        "source": "Spotify Community",
+        "title": "Spotify's Bluetooth connection drops constantly",
+        "text": "Using Spotify with any Bluetooth headphones results in frequent audio drops and stutters. Apple Music works perfectly on the same device with same headphones.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=64",
+        "date": "2026-06-16T09:09:00Z",
+        "author": "Phoenix Turner"
+    },
+    {
+        "id": "2dcc25ec1c180b58",
+        "source": "Spotify Community",
+        "title": "The podcast recommendations are always mainstream",
+        "text": "I listen to niche technology and science podcasts but Spotify always recommends true crime and comedy. The podcast recommendation algorithm needs improvement.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=65",
+        "date": "2026-03-17T08:01:00Z",
+        "author": "Wren Phillips"
+    },
+    {
+        "id": "60639a1b2c0bcf2e",
+        "source": "Spotify Community",
+        "title": "Can't preview songs before adding to library",
+        "text": "I want to preview a song before deciding to like it. The 30-second preview in search is gone. Now I have to fully play a song to decide if I want it.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=66",
+        "date": "2026-04-12T19:36:00Z",
+        "author": "Ellis Collins"
+    },
+    {
+        "id": "953f14086229f384",
+        "source": "Spotify Community",
+        "title": "The app battery drain is excessive on iOS",
+        "text": "Spotify drains 15-20% of my battery per hour of listening. Apple Music uses about 8% for the same usage. The iOS app needs better power optimization.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=67",
+        "date": "2026-01-02T21:09:00Z",
+        "author": "Jules Stewart"
+    },
+    {
+        "id": "7994f19e6da9b37f",
+        "source": "Spotify Community",
+        "title": "Spotify should show concert dates for liked artists",
+        "text": "I follow many artists but have no idea when they're touring. Spotify should integrate concert/event information directly on artist pages based on my liked artists.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=68",
+        "date": "2026-01-23T06:15:00Z",
+        "author": "August Morris"
+    },
+    {
+        "id": "c88a2813d432bfc2",
+        "source": "Spotify Community",
+        "title": "The home page auto-refreshes and loses my scroll position",
+        "text": "I'm scrolling through recommendations on the home page and it randomly refreshes, sending me back to the top. There should be a manual refresh button instead.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=69",
+        "date": "2026-01-22T20:07:00Z",
+        "author": "Lennox Scott"
+    },
+    {
+        "id": "366bd6196301e172",
+        "source": "Spotify Community",
+        "title": "Need a way to see total listening time per day",
+        "text": "I want to track how much music I listen to each day for personal health reasons. Spotify doesn't provide daily listening stats anywhere.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=70",
+        "date": "2026-04-16T09:56:00Z",
+        "author": "Arden Rogers"
+    },
+    {
+        "id": "1088887f355a830f",
+        "source": "Spotify Community",
+        "title": "The podcast chapter markers don't work",
+        "text": "Many podcasts have chapter markers but Spotify doesn't support them. I have to manually scrub through to find chapters. Other podcast apps handle this perfectly.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=71",
+        "date": "2026-02-08T14:13:00Z",
+        "author": "Peyton Reed"
+    },
+    {
+        "id": "9941cd2ac2a3a0ed",
+        "source": "Spotify Community",
+        "title": "Spotify's data usage is higher than competitors",
+        "text": "At the same quality setting, Spotify uses about 30% more data than Apple Music and Tidal. There's no reason for this overhead. Please optimize data usage.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=72",
+        "date": "2026-01-06T11:09:00Z",
+        "author": "Sawyer Cook"
+    },
+    {
+        "id": "af18ba9b1cf52f5c",
+        "source": "Spotify Community",
+        "title": "The new artist page redesign is a step backward",
+        "text": "The new artist page has less information than before. Discography is harder to navigate, related artists are gone, and the whole page is just a promotional banner.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=73",
+        "date": "2026-01-02T13:42:00Z",
+        "author": "River Morgan"
+    },
+    {
+        "id": "1c5e1b4324b1fe5d",
+        "source": "Spotify Community",
+        "title": "Can't customize the notification controls",
+        "text": "The notification player only shows basic controls. I want to add a 'like' button and 'add to queue' to the notification. The notification should be customizable.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=74",
+        "date": "2026-05-25T18:36:00Z",
+        "author": "Tatum Bell"
+    },
+    {
+        "id": "a602a3dd2ffb1c19",
+        "source": "Spotify Community",
+        "title": "Spotify Duo needs to be available worldwide",
+        "text": "Two-person plan at a discounted rate makes sense for couples. Currently only available in select countries. This should be a global offering.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=75",
+        "date": "2026-06-24T19:31:00Z",
+        "author": "Oakley Murphy"
+    },
+    {
+        "id": "47daea0e8e63b04d",
+        "source": "Spotify Community",
+        "title": "The playlist search within a playlist doesn't work",
+        "text": "I have a 2000-song playlist and can't search within it. I have to scroll through everything to find a specific song. Every other music app has in-playlist search.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=76",
+        "date": "2026-05-09T09:30:00Z",
+        "author": "Remi Bailey"
+    },
+    {
+        "id": "c5c6cc6704a2ae84",
+        "source": "Spotify Community",
+        "title": "Spotify Connect has a 10-second delay",
+        "text": "When I switch playback to another device, there's always a 10-second delay before it actually switches. The connection should be nearly instant.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=77",
+        "date": "2026-05-14T15:34:00Z",
+        "author": "Kai Adams"
+    },
+    {
+        "id": "5e4be3fc5cf9b0d0",
+        "source": "Spotify Community",
+        "title": "The app shows 'Adding to Your Library' for 5 seconds",
+        "text": "Every time I like a song, there's a 5-second animation blocking the screen. Just add the heart and move on. The confirmation is way too intrusive.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=78",
+        "date": "2026-03-10T20:55:00Z",
+        "author": "Eden Clark"
+    },
+    {
+        "id": "f26a84bc2f769a01",
+        "source": "Spotify Community",
+        "title": "Need a dark mode option for the web player",
+        "text": "The Spotify web player is stuck in light mode. My eyes hurt at night. The desktop app has dark mode, why doesn't the web player?",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=79",
+        "date": "2026-02-01T21:04:00Z",
+        "author": "Lyric Wilson"
+    },
+    {
+        "id": "9260fd0963b01135",
+        "source": "Spotify Community",
+        "title": "Spotify doesn't handle compilation albums well",
+        "text": "Compilation albums get split into multiple entries based on different editions. 'Now That's What I Call Music 50' shows up as 4 different albums in my library.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=80",
+        "date": "2026-01-01T10:00:00Z",
+        "author": "Micah Taylor"
+    },
+    {
+        "id": "88d1479b9c4f3669",
+        "source": "Spotify Community",
+        "title": "The music discovery has become an echo chamber",
+        "text": "My recommendations only suggest music similar to what I already listen to. I used to discover wildly different genres but now the algorithm plays it safe.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=81",
+        "date": "2026-01-22T09:32:00Z",
+        "author": "Cameron Lee"
+    },
+    {
+        "id": "7d1453b794e170f4",
+        "source": "Spotify Community",
+        "title": "Spotify needs better parental controls for content",
+        "text": "The explicit content filter is too basic. I want age-appropriate filtering, not just a single toggle. Kids should have a safe listening experience.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=82",
+        "date": "2026-02-22T08:49:00Z",
+        "author": "Dakota Gray"
+    },
+    {
+        "id": "11e3319472897545",
+        "source": "Spotify Community",
+        "title": "The gap between songs is inconsistent",
+        "text": "Some song transitions are smooth, others have a noticeable gap. Even within the same album, the gap varies. Consistent gapless playback should be the default.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=83",
+        "date": "2026-04-06T09:42:00Z",
+        "author": "Noah Brooks"
+    },
+    {
+        "id": "427caf3e65371c45",
+        "source": "Spotify Community",
+        "title": "Can't create smart playlists based on listening habits",
+        "text": "I want to auto-generate playlists based on rules like 'songs played more than 20 times this year' or 'songs added in the last month with high energy'. Smart playlists are a must.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=84",
+        "date": "2026-04-10T20:56:00Z",
+        "author": "Reagan Fisher"
+    },
+    {
+        "id": "0033a4a4c43f5919",
+        "source": "Spotify Community",
+        "title": "The podcast playback doesn't resume where I left off",
+        "text": "I pause a podcast and come back 2 hours later. It starts from the beginning instead of where I paused. This is basic functionality that's broken.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=85",
+        "date": "2026-04-18T18:12:00Z",
+        "author": "Sawyer Hall"
+    },
+    {
+        "id": "91b0d324ed90f0d9",
+        "source": "Spotify Community",
+        "title": "Spotify should integrate with fitness apps",
+        "text": "Apple Health and Google Fit track workouts but Spotify doesn't integrate heart rate or step data to suggest music. This would be an amazing feature for runners.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=86",
+        "date": "2026-06-14T14:18:00Z",
+        "author": "Quinn Walker"
+    },
+    {
+        "id": "4b8d055218daf71f",
+        "source": "Spotify Community",
+        "title": "The search results are biased towards promoted content",
+        "text": "Searching for an artist shows their promoted/sponsored content first, not their most popular songs. The search should be organic, not paid.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=87",
+        "date": "2026-01-28T22:20:00Z",
+        "author": "Blair Turner"
+    },
+    {
+        "id": "3ca039ff8babe475",
+        "source": "Spotify Community",
+        "title": "Need an option to disable song previews in search",
+        "text": "Auto-playing previews in search is annoying when I'm browsing. It should be an opt-in feature, not forced on everyone. There's a toggle but it doesn't fully work.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=88",
+        "date": "2026-03-07T14:23:00Z",
+        "author": "Charlie Young"
+    },
+    {
+        "id": "877fd93f934a62af",
+        "source": "Spotify Community",
+        "title": "The podcast statistics page is useless",
+        "text": "The podcast stats only show total episodes listened and time spent. I want per-show stats, completion rates, and listening patterns like music Wrapped provides.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=89",
+        "date": "2026-06-22T21:47:00Z",
+        "author": "Drew Baker"
+    },
+    {
+        "id": "208ccadb08b2ff39",
+        "source": "Spotify Community",
+        "title": "Spotify doesn't sync listening between phone and desktop",
+        "text": "I listen to something on my phone and the desktop app shows a completely different 'Recently Played' list. The sync between devices is unreliable.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=90",
+        "date": "2026-06-17T18:32:00Z",
+        "author": "Alex Rivera"
+    },
+    {
+        "id": "3b36a2fc9a692356",
+        "source": "Spotify Community",
+        "title": "The playlist cover art upload is broken on Android",
+        "text": "I try to set a custom cover for my playlist and the image is always cropped incorrectly. The aspect ratio gets distorted on upload.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=91",
+        "date": "2026-05-13T14:24:00Z",
+        "author": "Jordan Chen"
+    },
+    {
+        "id": "4e1d049a67ce494a",
+        "source": "Spotify Community",
+        "title": "Love the audiobook integration but hate the price",
+        "text": "The audiobook feature is great but the 15-hour monthly listening limit with premium is not enough. Either remove the limit or offer audiobooks at a better price.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=92",
+        "date": "2026-06-18T15:59:00Z",
+        "author": "Sam Williams"
+    },
+    {
+        "id": "0b7dd40db34c9a8b",
+        "source": "Spotify Community",
+        "title": "The queue shows as empty even when songs are playing",
+        "text": "I queue 5 songs, the first one plays, but the queue panel shows empty. The songs do play in order, but the UI doesn't reflect what's coming up.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=93",
+        "date": "2026-01-09T09:09:00Z",
+        "author": "Taylor Martinez"
+    },
+    {
+        "id": "ce6dd701dbdc1080",
+        "source": "Spotify Community",
+        "title": "Spotify on car display shows wrong album art",
+        "text": "My car's Spotify display shows album art from completely different songs. It's been showing the same wrong image for weeks across multiple tracks.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=94",
+        "date": "2026-02-12T07:13:00Z",
+        "author": "Casey Brooks"
+    },
+    {
+        "id": "e71f3aa5786752a4",
+        "source": "Spotify Community",
+        "title": "Need a way to block specific artists from recommendations",
+        "text": "I've disliked specific artists but they still appear in recommendations, radio, and daily mixes. There should be a 'block artist' feature that completely removes them.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=95",
+        "date": "2026-05-20T23:38:00Z",
+        "author": "Morgan Lee"
+    },
+    {
+        "id": "3aa43d7fa59d06ee",
+        "source": "Spotify Community",
+        "title": "The podcast transcripts lack timestamps",
+        "text": "The auto-generated transcripts don't have clickable timestamps. I want to jump to a specific part of a podcast by tapping on the transcript. This is basic UX.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=96",
+        "date": "2026-06-19T07:33:00Z",
+        "author": "Riley Thompson"
+    },
+    {
+        "id": "5835923a369a6193",
+        "source": "Spotify Community",
+        "title": "Spotify's API rate limits are too restrictive",
+        "text": "As a developer building tools on Spotify's API, the rate limits are extremely restrictive. 30 requests per minute is not enough for any meaningful application.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=97",
+        "date": "2026-01-28T09:40:00Z",
+        "author": "Quinn Davis"
+    },
+    {
+        "id": "e0e1a9b10f340ad6",
+        "source": "Spotify Community",
+        "title": "The library 'sort by date added' is not chronological",
+        "text": "When I sort my liked songs by 'Date Added', songs from the same day appear in random order. Within the same day, there should be a precise time-based sort.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=98",
+        "date": "2026-06-27T10:17:00Z",
+        "author": "Avery Wilson"
+    },
+    {
+        "id": "5c8aa9cde8ecb0d2",
+        "source": "Spotify Community",
+        "title": "Can't share a specific timestamp of a song",
+        "text": "I want to share a link that starts at a specific moment in a song, like the bridge or solo. YouTube does this but Spotify links always start from the beginning.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=99",
+        "date": "2026-02-21T16:03:00Z",
+        "author": "Parker Garcia"
+    },
+    {
+        "id": "6d9cd9adf7c59c0a",
+        "source": "Spotify Community",
+        "title": "The new UI removed the 'Go to Song Radio' shortcut",
+        "text": "I used to long-press a song to get a 'Song Radio' shortcut. That option is gone now. I have to navigate through menus to find it. More clicks = worse UX.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=100",
+        "date": "2026-06-17T18:05:00Z",
+        "author": "Drew Anderson"
+    },
+    {
+        "id": "a67a33c9c31d97c4",
+        "source": "Spotify Community",
+        "title": "Spotify should have a queue history/undo feature",
+        "text": "I accidentally removed a song from the queue and there's no way to undo. A queue history with an undo option would prevent this frustration.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=101",
+        "date": "2026-06-10T08:23:00Z",
+        "author": "Jamie Robinson"
+    },
+    {
+        "id": "11c05672513252d1",
+        "source": "Spotify Community",
+        "title": "The podcast play counts should be visible",
+        "text": "I want to see how many times I've played each podcast episode. This data is tracked internally but never shown to users. Make play counts visible.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=102",
+        "date": "2026-04-21T06:03:00Z",
+        "author": "Skyler Clark"
+    },
+    {
+        "id": "15344336de08f40c",
+        "source": "Spotify Community",
+        "title": "Spotify's offline mode doesn't support playlist folders",
+        "text": "I organize playlists into folders but offline mode shows a flat list. Folder structure is lost when offline. My organization system breaks completely.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=103",
+        "date": "2026-04-24T10:31:00Z",
+        "author": "Robin Lewis"
+    },
+    {
+        "id": "557362f7be6b4aa0",
+        "source": "Spotify Community",
+        "title": "The audio ducking feature doesn't work with notifications",
+        "text": "When a notification sound plays while Spotify is playing, the music volume should duck down momentarily. Instead, both sounds play at full volume together.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=104",
+        "date": "2026-04-26T23:54:00Z",
+        "author": "Dakota Hall"
+    },
+    {
+        "id": "8611fc6490cc9403",
+        "source": "Spotify Community",
+        "title": "Can't add a song from a collaborative playlist to my library",
+        "text": "Someone added a song to our collaborative playlist that I love, but there's no easy way to add it to my own library from that context.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=105",
+        "date": "2026-01-14T06:07:00Z",
+        "author": "Finley Young"
+    },
+    {
+        "id": "23f17b96cd22eea8",
+        "source": "Spotify Community",
+        "title": "Spotify should support music video playback inline",
+        "text": "The music video feature exists but you can't watch videos while browsing. Videos should play in a mini-player or picture-in-picture mode.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=106",
+        "date": "2026-01-13T10:02:00Z",
+        "author": "Sage Walker"
+    },
+    {
+        "id": "406bf6d8f900cb2b",
+        "source": "Spotify Community",
+        "title": "The app's notification is always present even when paused",
+        "text": "The Spotify notification stays in my notification tray even after I pause playback and haven't used Spotify for hours. It should auto-dismiss after inactivity.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=107",
+        "date": "2026-06-26T14:52:00Z",
+        "author": "Kendall Scott"
+    },
+    {
+        "id": "e63c776a6a2a7185",
+        "source": "Spotify Community",
+        "title": "Need the ability to rate songs with stars or thumbs",
+        "text": "The like/dislike binary is too limited. I want a 5-star rating system so I can distinguish between songs I like and songs I love. This improves recommendations.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=108",
+        "date": "2026-05-09T11:34:00Z",
+        "author": "Rowan Adams"
+    },
+    {
+        "id": "a20b9c43749f87e5",
+        "source": "Spotify Community",
+        "title": "The web player doesn't support keyboard shortcuts",
+        "text": "Keyboard shortcuts work in the desktop app but not the web player. Spacebar should play/pause, arrow keys should seek. These are universal media controls.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=109",
+        "date": "2026-06-03T08:02:00Z",
+        "author": "Hayden Baker"
+    },
+    {
+        "id": "8c66f17f445dccad",
+        "source": "Spotify Community",
+        "title": "Spotify needs a proper listening diary or journal",
+        "text": "I want a daily journal of what I listened to, how I felt about it, and notes about the music. A personal music journal integrated into the app would be amazing.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=110",
+        "date": "2026-05-24T18:32:00Z",
+        "author": "Blake Nelson"
+    },
+    {
+        "id": "9ce19983def9c054",
+        "source": "Spotify Community",
+        "title": "The podcast skip forward/back intervals are not customizable",
+        "text": "The default 15s back and 30s forward are fixed. I want to set my own intervals like 5s, 10s, or 20s. Different content needs different skip intervals.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=111",
+        "date": "2026-06-03T11:47:00Z",
+        "author": "Emery Carter"
+    },
+    {
+        "id": "a00e1e8309d32120",
+        "source": "Spotify Community",
+        "title": "Spotify Connect should work over cellular",
+        "text": "I can't use Spotify Connect to control my home speakers when I'm away from home on cellular data. The connection should work over the internet, not just local network.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=112",
+        "date": "2026-04-07T23:36:00Z",
+        "author": "Harper Mitchell"
+    },
+    {
+        "id": "5fc6360033ad8b37",
+        "source": "Spotify Community",
+        "title": "The album page shows wrong total duration",
+        "text": "Several albums show incorrect total play time. One album shows 45 minutes but actually plays for over an hour. The metadata is clearly wrong.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=113",
+        "date": "2026-06-11T16:30:00Z",
+        "author": "Reese Campbell"
+    },
+    {
+        "id": "a52a9e0c37730783",
+        "source": "Spotify Community",
+        "title": "Can't reorder my Liked Songs playlist",
+        "text": "My Liked Songs can only be sorted, not manually reordered. I want to curate the order of my most important playlist. Please allow manual reordering.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=114",
+        "date": "2026-02-07T21:36:00Z",
+        "author": "Phoenix Turner"
+    },
+    {
+        "id": "71cc739e7d8ae893",
+        "source": "Spotify Community",
+        "title": "The podcast episode descriptions are truncated",
+        "text": "Long episode descriptions are cut off with no way to expand them. I need to see the full description to know if an episode is worth my time.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=115",
+        "date": "2026-04-19T18:47:00Z",
+        "author": "Wren Phillips"
+    },
+    {
+        "id": "7b31b821e7600244",
+        "source": "Spotify Community",
+        "title": "Spotify should support Lossless on more devices",
+        "text": "Lossless streaming is only available on specific devices. My premium subscription should work at the highest quality on ALL my devices, not just the ones Spotify approves.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=116",
+        "date": "2026-06-28T23:50:00Z",
+        "author": "Ellis Collins"
+    },
+    {
+        "id": "18397fcf1debeda2",
+        "source": "Spotify Community",
+        "title": "The social sharing links redirect through a browser",
+        "text": "When someone clicks my shared Spotify link, it opens a browser redirect instead of going directly to the app. This adds unnecessary friction and time.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=117",
+        "date": "2026-02-13T09:13:00Z",
+        "author": "Jules Stewart"
+    },
+    {
+        "id": "673a23d966b09348",
+        "source": "Spotify Community",
+        "title": "Can't see what friends are listening to in real-time",
+        "text": "The friend activity feature was great but it's been degraded. Real-time listening data is often hours old. If you're going to have the feature, make it accurate.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=118",
+        "date": "2026-05-21T15:41:00Z",
+        "author": "August Morris"
+    },
+    {
+        "id": "cd20f57f51dc21b8",
+        "source": "Spotify Community",
+        "title": "The playlist description field has a tiny character limit",
+        "text": "I want to add detailed descriptions to my playlists but the character limit is too short. I should be able to add full track lists, credits, and notes.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=119",
+        "date": "2026-06-11T16:41:00Z",
+        "author": "Lennox Scott"
+    },
+    {
+        "id": "1bf066d98a04f657",
+        "source": "Spotify Community",
+        "title": "Spotify should have a 'focus mode' for studying",
+        "text": "A special mode that plays ambient music, blocks social notifications, and has a study timer would be incredibly useful. Many students would pay for this.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=120",
+        "date": "2026-04-07T22:32:00Z",
+        "author": "Arden Rogers"
+    },
+    {
+        "id": "8c6b2d5178bee121",
+        "source": "Spotify Community",
+        "title": "The app doesn't handle low storage gracefully",
+        "text": "When my phone storage gets low, Spotify crashes instead of showing a warning. It should detect low storage and suggest clearing cache or removing downloads.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=121",
+        "date": "2026-03-26T12:16:00Z",
+        "author": "Peyton Reed"
+    },
+    {
+        "id": "36f2fddef2555f3c",
+        "source": "Spotify Community",
+        "title": "Love the enhanced playlist feature but want more control",
+        "text": "The auto-added songs to enhanced playlists are good but I want to set how many songs get added and adjust the algorithm's creativity level.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=122",
+        "date": "2026-03-26T13:10:00Z",
+        "author": "Sawyer Cook"
+    },
+    {
+        "id": "e8a1a7f17d43b6ca",
+        "source": "Spotify Community",
+        "title": "Spotify needs a 'Recently Discovered' section",
+        "text": "I discover new artists through Discover Weekly and Release Radar but there's no centralized place to see all recently discovered music. A discovery history would be great.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=123",
+        "date": "2026-03-22T10:53:00Z",
+        "author": "River Morgan"
+    },
+    {
+        "id": "1787f6640b2ab140",
+        "source": "Spotify Community",
+        "title": "The podcast recommendations don't match my interests",
+        "text": "I exclusively listen to history podcasts but get recommended comedy, true crime, and celebrity podcasts. The podcast recommendation engine needs a major overhaul.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=124",
+        "date": "2026-03-17T20:18:00Z",
+        "author": "Tatum Bell"
+    },
+    {
+        "id": "7990029ca03f7fcf",
+        "source": "Spotify Community",
+        "title": "Can't see album credits or liner notes",
+        "text": "I want to see who produced, mixed, and mastered an album. This information exists in music databases but Spotify doesn't surface it. Music is collaborative, show the credits.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=125",
+        "date": "2026-03-16T13:44:00Z",
+        "author": "Oakley Murphy"
+    },
+    {
+        "id": "e2d11dcb2dfeb34d",
+        "source": "Spotify Community",
+        "title": "The now playing bar blocks content on small screens",
+        "text": "On smaller phones, the persistent now playing bar at the bottom takes up too much screen real estate. It should auto-hide when scrolling through content.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=126",
+        "date": "2026-01-16T08:17:00Z",
+        "author": "Remi Bailey"
+    },
+    {
+        "id": "54b72848ae62cf13",
+        "source": "Spotify Community",
+        "title": "Spotify should support MIDI input for DJing",
+        "text": "Many DJs want to use Spotify with their MIDI controllers. Supporting MIDI input would open up a whole new user base and use case for the platform.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=127",
+        "date": "2026-03-06T06:58:00Z",
+        "author": "Kai Adams"
+    },
+    {
+        "id": "eaa3de45a857a91a",
+        "source": "Spotify Community",
+        "title": "The weekly discovery playlists are getting repetitive",
+        "text": "My Discover Weekly and Release Radar have been recycling the same artists for months. I've tried resetting my taste profile but it doesn't help.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=128",
+        "date": "2026-03-19T19:27:00Z",
+        "author": "Eden Clark"
+    },
+    {
+        "id": "57daa8b4ce45140b",
+        "source": "Spotify Community",
+        "title": "Need a 'listening history' export in a readable format",
+        "text": "I want to export my complete listening history as a CSV or HTML file that I can browse and analyze offline. The current data export is limited and raw.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=129",
+        "date": "2026-05-17T19:44:00Z",
+        "author": "Lyric Wilson"
+    },
+    {
+        "id": "dc5c8ac7e3706434",
+        "source": "Spotify Community",
+        "title": "The playlist analytics should be more detailed",
+        "text": "I want to see average song length, most-played tracks, genre breakdown, and listening patterns for my playlists. The current analytics are just basic numbers.",
+        "url": "https://community.spotify.com/t5/Help/ct-p/Help/board?board.id=spotifyandroid&message.id=130",
+        "date": "2026-04-27T09:43:00Z",
+        "author": "Micah Taylor"
     }
 ]
